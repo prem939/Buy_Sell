@@ -29,8 +29,7 @@ public class SplashScreenActivity extends BaseActivity {
                     startActivity(i);
                     overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
                     finish();
-                    //hai ra tejaaa
                 }
-            }, 5000);
+            }, 3000);
     }
 }
