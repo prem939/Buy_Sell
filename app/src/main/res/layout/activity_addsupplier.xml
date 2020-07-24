@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F1EFEF"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    tools:context=".Addsupplier">
+    <LinearLayout
+        android:layout_gravity="center"
+
+        android:background="#FFFFFF"
+        android:layout_width="370dp"
+        android:orientation="vertical"
+        android:layout_height="100dp">
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Name"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:textColor="#81787B"
+            />
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/d2"
+            android:id="@+id/userid"
+            android:layout_width="320dp"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+<TextView
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="25dp"
+    android:textStyle="bold"
+    android:textSize="20dp"
+    android:text="Add New Supplier"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"></TextView>
+    <LinearLayout
+        android:layout_gravity="center"
+android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:layout_width="370dp"
+        android:orientation="vertical"
+        android:layout_height="470dp">
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Supplier Name"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:textColor="#81787B"
+            />
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/d2"
+            android:id="@+id/suppliername"
+            android:layout_width="320dp"
+            android:layout_height="40dp"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Supplier ID "
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:textColor="#81787B"
+            />
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/d2"
+            android:id="@+id/supplierid"
+            android:layout_width="320dp"
+            android:layout_height="40dp"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location "
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:textColor="#81787B"
+            />
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/d2"
+            android:id="@+id/location"
+            android:layout_width="320dp"
+            android:layout_height="40dp"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pincode "
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:textColor="#81787B"
+            />
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/d2"
+            android:id="@+id/spincode"
+            android:layout_width="320dp"
+            android:layout_height="40dp"/>
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/a1"
+            android:textColor="#ffff"
+            android:text="Submit "
+            android:textSize="20dp"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"></Button>
+    </LinearLayout>
+</LinearLayout>

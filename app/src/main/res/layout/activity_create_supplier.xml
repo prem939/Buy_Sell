@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".Create_supplier">
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_gravity="center"
+
+        android:background="#FFFFFF"
+        android:layout_width="370dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Supplier Name"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:textColor="#81787B"
+            />
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/d2"
+            android:id="@+id/userid"
+            android:layout_width="320dp"
+            android:layout_height="40dp"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Template"
+            android:textColor="#81787B"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="30dp"
+            />
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/d2"
+            android:id="@+id/password"
+            android:layout_width="320dp"
+            android:layout_height="40dp"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pan/Aadhar No"
+            android:textColor="#81787B"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="30dp"
+            />
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/d2"
+            android:id="@+id/pan_adhar"
+            android:layout_width="320dp"
+            android:layout_height="40dp"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textColor="#81787B"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="30dp"
+            />
+        <EditText
+            android:layout_gravity="center"
+            android:background="@drawable/d2"
+            android:id="@+id/address"
+            android:layout_width="320dp"
+            android:layout_height="40dp"/>
+        <LinearLayout
+            android:gravity="center"
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                     android:textSize="20dp"
+                android:text="City"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="Zip Code"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:background="@drawable/d2"
+                android:gravity="center"
+
+                android:layout_width="160dp"
+                android:layout_height="40dp"></EditText>
+            <EditText
+                android:background="@drawable/d2"
+                android:gravity="center"
+
+
+                android:layout_width="160dp"
+                android:layout_height="40dp"></EditText>
+
+        </LinearLayout>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Country"
+            android:textColor="#81787B"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="30dp"
+            />
+        <Spinner
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:id="@+id/CSpinner"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:background="@drawable/d2"
+            />
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/a1"
+            android:textColor="#ffff"
+            android:text="Create Supplier"
+            android:textSize="20dp"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"></Button>
+    </LinearLayout>
+
+</LinearLayout>
