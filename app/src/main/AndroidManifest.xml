@@ -17,7 +17,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.buysell2.LoginAcivity"
+            android:name="com.example.buysell2.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" />
+        <activity
+            android:name="com.example.buysell2.Signup"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" />
+        <activity
+            android:name="com.example.buysell2.Home"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" />
