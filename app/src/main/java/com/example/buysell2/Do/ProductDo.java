@@ -1,11 +1,11 @@
-package com.example.buysell2;
+package com.example.buysell2.Do;
 
-public class Product {
+public class ProductDo {
 
     String name;
     int image;
 
-    public Product(String name, int image) {
+    public ProductDo(String name, int image) {
         this.name = name;
         this.image = image;
     }

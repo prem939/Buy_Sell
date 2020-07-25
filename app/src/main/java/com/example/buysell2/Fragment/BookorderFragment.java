@@ -1,4 +1,4 @@
-package com.example.buysell2;
+package com.example.buysell2.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,13 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.buysell2.Adapters.BookorderAdapter;
+import com.example.buysell2.Do.ProductDo;
+import com.example.buysell2.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BookorderFragment extends Fragment {
 
-    List<Product> list=new ArrayList<>();
+    List<ProductDo> list=new ArrayList<>();
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -51,13 +55,13 @@ public class BookorderFragment extends Fragment {
 
     private void getData() {
 
-      Product product=new Product("ThumsUp",R.drawable.thumsup);
-      list.add(product);
-        product=new Product("Sprite",R.drawable.sprite);
-        list.add(product);
-        product=new Product("Pepsi",R.drawable.pepsi);
-        list.add(product);
-        product=new Product("Seven",R.drawable.sevenup);
-        list.add(product);
+      ProductDo productDo =new ProductDo("ThumsUp",R.drawable.thumsup);
+      list.add(productDo);
+        productDo =new ProductDo("Sprite",R.drawable.sprite);
+        list.add(productDo);
+        productDo =new ProductDo("Pepsi",R.drawable.pepsi);
+        list.add(productDo);
+        productDo =new ProductDo("Seven",R.drawable.sevenup);
+        list.add(productDo);
     }
 }

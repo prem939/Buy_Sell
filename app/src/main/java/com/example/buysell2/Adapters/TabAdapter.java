@@ -1,4 +1,4 @@
-package com.example.buysell2;
+package com.example.buysell2.Adapters;
 
 import android.content.Context;
 
@@ -6,6 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.buysell2.Fragment.BookorderFragment;
+import com.example.buysell2.Fragment.MarketFragment;
+import com.example.buysell2.Fragment.OrderListFragment;
 
 public class TabAdapter extends FragmentPagerAdapter {
 

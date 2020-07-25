@@ -1,34 +1,33 @@
-package com.example.buysell2;
+package com.example.buysell2.Activities;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.example.buysell2.R;
+import com.example.buysell2.Adapters.TabAdapter;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
-public class Home extends BaseActivity {
+public class HomeScreenActivity extends BaseActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
+    LinearLayout llhome;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+    public void initialize() {
+        llhome = (LinearLayout) inflater.inflate(R.layout.activity_home, null);//GODREJ
+        llBody.addView(llhome, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        btnMenu.setVisibility(View.GONE);
 
-        tabLayout=(TabLayout)findViewById(R.id.tabLayout);
-        viewPager=(ViewPager)findViewById(R.id.viewPager);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         tabLayout.addTab(tabLayout.newTab().setText("Book Order"));
         tabLayout.addTab(tabLayout.newTab().setText("Order List"));
@@ -38,7 +37,7 @@ public class Home extends BaseActivity {
         tabLayout.getTabAt(1);
         tabLayout.getTabAt(2);
 
-        TabAdapter adapter = new TabAdapter(this,getSupportFragmentManager(), tabLayout.getTabCount());
+        TabAdapter adapter = new TabAdapter(this, getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -59,14 +58,6 @@ public class Home extends BaseActivity {
 
             }
         });
-
-
-
-    }
-
-    @Override
-    public void initialize() {
-
     }
 }
 

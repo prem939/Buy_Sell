@@ -1,4 +1,4 @@
-package com.example.buysell2;
+package com.example.buysell2.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.buysell2.Adapters.OrderListAdapter;
+import com.example.buysell2.R;
 
 
 public class OrderListFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.buysell2;
+package com.example.buysell2.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,12 +12,15 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.buysell2.Do.ProductDo;
+import com.example.buysell2.R;
+
 public class BookorderAdapter extends RecyclerView.Adapter<BookorderAdapter.ViewHolder> {
 
     Context context;
-    List<Product>list;
+    List<ProductDo>list;
 
-    public BookorderAdapter(Context context, List<Product> list) {
+    public BookorderAdapter(Context context, List<ProductDo> list) {
 
         this.list=list;
         this.context=context;
@@ -35,9 +38,9 @@ public class BookorderAdapter extends RecyclerView.Adapter<BookorderAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-       final Product product=list.get(position);
-        holder.textView.setText(product.getName());
-        holder.imageView.setImageResource(product.getImage());
+       final ProductDo productDo =list.get(position);
+        holder.textView.setText(productDo.getName());
+        holder.imageView.setImageResource(productDo.getImage());
 
     }
 

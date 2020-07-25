@@ -1,4 +1,4 @@
-package com.example.buysell2;
+package com.example.buysell2.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,25 +8,27 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class OrderListAdapter extends BaseAdapter {
+import com.example.buysell2.R;
+
+public class MarketAdpter extends BaseAdapter {
 
     Context context;
     LayoutInflater inflater;
-    String[] MovieName;
-    int[] MovieImage;
+    String[] SportName;
+    int[] SportImage;
 
-    public OrderListAdapter(Context context, String[] movieName, int[] movieImage) {
+    public MarketAdpter(Context context, String[] sportName, int[] sportImage) {
 
         this.context=context;
-        this.MovieImage=movieImage;
-        this.MovieName=movieName;
+        this.SportName=sportName;
+        this.SportImage=sportImage;
 
         inflater=(LayoutInflater.from(context));
     }
 
     @Override
     public int getCount() {
-        return MovieName.length;
+        return SportName.length;
     }
 
     @Override
@@ -42,12 +44,12 @@ public class OrderListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        convertView =inflater.inflate(R.layout.movies_item_list,null);
-        TextView textMovieName=convertView.findViewById(R.id.movieName);
-        ImageView imagewMovie =convertView.findViewById(R.id.movieImage);
+        convertView =inflater.inflate(R.layout.sports_item_list,null);
+        TextView textName=convertView.findViewById(R.id.sportName);
+        ImageView imageview =convertView.findViewById(R.id.sportImage);
 
-        textMovieName.setText(MovieName[position]);
-        imagewMovie.setImageResource(MovieImage[position]);
+        textName.setText(SportName[position]);
+        imageview.setImageResource(SportImage[position]);
 
         return convertView;
     }

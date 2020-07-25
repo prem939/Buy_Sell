@@ -6,16 +6,43 @@
     android:orientation="vertical" >
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_50sdp"
+    android:layout_height="@dimen/_45sdp"
     android:background="@color/app_color"
+    android:id="@+id/llheader"
     android:orientation="horizontal">
     <Button
         android:id="@+id/btnMenu"
-        android:layout_width="@dimen/_25sdp"
+        android:layout_width="@dimen/_40sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="2dp"
-        android:background="@drawable/menu_h" />
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/menu"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_head"
+        android:textSize="@dimen/_20ssp"
+        android:text="Buy Sell"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:gravity="center_horizontal">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="right">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_cart"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/cart">
+    </ImageView>
+    </LinearLayout>
 </LinearLayout>
 <!--    <FrameLayout-->
 <!--        android:layout_width="match_parent"-->
@@ -50,6 +77,7 @@
             android:id="@+id/flMenu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:touchscreenBlocksFocus="true"
             android:layout_gravity="start" >
 
             <LinearLayout
