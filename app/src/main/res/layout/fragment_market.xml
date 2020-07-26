@@ -8,11 +8,11 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gray_light"
+        android:background="@color/gray_lite2"
         app:tabIndicatorColor="@color/black"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/black"
-        app:tabTextColor="@color/white">
+        app:tabTextColor="@color/gray_light">
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager

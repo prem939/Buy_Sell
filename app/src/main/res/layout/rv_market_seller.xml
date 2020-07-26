@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:text="Supplier"
             android:id="@+id/txt_supplier"
-            android:textSize="@dimen/_7ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/black">
         </TextView>
         <TextView
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Item"
             android:id="@+id/txt_item"
-            android:textSize="@dimen/_7ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/black">
         </TextView>
         <TextView
@@ -29,7 +29,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="MKT Price"
-            android:textSize="@dimen/_7ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/black">
         </TextView>
         <TextView
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:text="Disc%"
             android:id="@+id/txt_disc"
-            android:textSize="@dimen/_7ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/black">
         </TextView>
         <TextView
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:text="Qty"
             android:id="@+id/txt_qty"
-            android:textSize="@dimen/_7ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/black">
         </TextView>
         <TextView
@@ -56,7 +56,7 @@
             android:id="@+id/txt_totalAmt"
             android:layout_height="wrap_content"
             android:text="Total Amt"
-            android:textSize="@dimen/_7ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/black">
         </TextView>
         <TextView
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:text="Select"
             android:id="@+id/txt_select"
-            android:textSize="@dimen/_7ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/black">
         </TextView>
         <TextView
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:text="Location"
             android:id="@+id/txt_location"
-            android:textSize="@dimen/_7ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/black">
         </TextView>
     </LinearLayout>
