@@ -8,18 +8,18 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.buysell2.Fragment.BookorderFragment;
-import com.example.buysell2.Fragment.MarketFragment;
+import com.example.buysell2.Fragment.MarketBuyerFragment;
+import com.example.buysell2.Fragment.MarketSellerFragment;
 import com.example.buysell2.Fragment.OrderListFragment;
 
-public class TabAdapter extends FragmentPagerAdapter {
-
+public class MarketTableAdapter extends FragmentPagerAdapter {
     private Context myContext;
     int totalTabs;
-    FragmentManager fm ;
-    public TabAdapter(Context context, FragmentManager fm, int totalTabs) {
+
+    public MarketTableAdapter(@NonNull FragmentManager fm, Context myContext, int totalTabs) {
         super(fm);
-        myContext=context;
-        this.totalTabs=totalTabs;
+        this.myContext = myContext;
+        this.totalTabs = totalTabs;
     }
 
     @NonNull
@@ -27,14 +27,11 @@ public class TabAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                BookorderFragment bookorderFragment = new BookorderFragment();
-                return bookorderFragment;
+                MarketBuyerFragment marketBuyerFragment = new MarketBuyerFragment();
+                return marketBuyerFragment;
             case 1:
-                OrderListFragment movieFragment = new OrderListFragment();
-                return movieFragment;
-            case 2:
-                MarketFragment sportFragment = new MarketFragment();
-                return sportFragment;
+                MarketSellerFragment marketSellerFragment = new MarketSellerFragment();
+                return marketSellerFragment;
             default:
                 return null;
         }

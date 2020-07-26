@@ -22,7 +22,7 @@ import com.example.buysell2.R;
  */
 public class BookorderFragment extends Fragment {
 
-    List<ProductDo> list=new ArrayList<>();
+    List<ProductDo> list = new ArrayList<>();
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -38,30 +38,16 @@ public class BookorderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_book_orders, container, false);
 
-        recyclerView=view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        layoutManager=new LinearLayoutManager(getActivity());
+        layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        homeAdapter=new BookorderAdapter(getContext(),list);
+        homeAdapter = new BookorderAdapter(getContext(), list);
         recyclerView.setAdapter(homeAdapter);
-
-        getData();
-
 
         return view;
     }
 
-    private void getData() {
-
-      ProductDo productDo =new ProductDo("ThumsUp",R.drawable.thumsup);
-      list.add(productDo);
-        productDo =new ProductDo("Sprite",R.drawable.sprite);
-        list.add(productDo);
-        productDo =new ProductDo("Pepsi",R.drawable.pepsi);
-        list.add(productDo);
-        productDo =new ProductDo("Seven",R.drawable.sevenup);
-        list.add(productDo);
-    }
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Buyer Name"
+            android:id="@+id/txt_buyerName"
+            android:textSize="@dimen/_7ssp"
+            android:textColor="@color/black">
+
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/txt_itemName"
+            android:layout_height="wrap_content"
+            android:text="Item Name"
+            android:textSize="@dimen/_7ssp"
+            android:textColor="@color/black">
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/txt_qty"
+            android:layout_height="wrap_content"
+            android:text="Qty"
+            android:textSize="@dimen/_7ssp"
+            android:textColor="@color/black">
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Quote"
+            android:id="@+id/txt_quote"
+            android:textSize="@dimen/_7ssp"
+            android:textColor="@color/black">
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/txt_total"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textSize="@dimen/_7ssp"
+            android:textColor="@color/black">
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+            android:text="Ship To"
+            android:id="@+id/txt_shipto"
+            android:textSize="@dimen/_7ssp"
+            android:textColor="@color/black">
+        </TextView>
+</LinearLayout>

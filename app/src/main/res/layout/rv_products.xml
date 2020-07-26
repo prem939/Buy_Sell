@@ -26,7 +26,7 @@
         android:layout_weight="1"
         android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txt_productName"
             android:text="Product Name 1"
@@ -35,14 +35,14 @@
             android:textColor="@color/black">
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Price"
             android:textSize="@dimen/_10sdp"
             android:textColor="@color/gray_dark">
         </TextView>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txt_productPrice"
             android:text="1500 ₹"

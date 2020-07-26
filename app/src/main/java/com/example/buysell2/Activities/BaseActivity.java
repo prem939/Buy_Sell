@@ -206,6 +206,9 @@ public abstract class BaseActivity extends FragmentActivity {
         } else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[4]))) {
             Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
             startActivity(intent);
+        }  else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[5]))) {
+            Intent intent = new Intent(BaseActivity.this, HomeScreenActivity.class);
+            startActivity(intent);
         }
     }
 

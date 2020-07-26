@@ -72,7 +72,7 @@ public class AppConstants {
     }
     /*********************************************Pre Sales Customer Menu Options********************************************/
 
-    public static String AdminCheckedInMenuOption[] = {"Create Supplier", "Add Item and Update Item", "Post ads", "Add supplier", "Make Order"};
+    public static String AdminCheckedInMenuOption[] = {"Create Supplier", "Add Item and Update Item", "Post ads", "Add supplier", "Make Order","My Orders"};
     public static String SupplierCheckedInMenuOption[] = {"Create Supplier", "Add Item andUpdate Item", "Post ads", "Make Order"};
     public static String SalesPersonCheckedInMenuOption[] = {"Make Order"};
     public static String CustomerCheckedInMenuOption[] = {"Add supplier", "Make Order"};

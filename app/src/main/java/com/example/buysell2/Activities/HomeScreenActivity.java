@@ -22,12 +22,12 @@ public class HomeScreenActivity extends BaseActivity {
     LinearLayout llhome;
     @Override
     public void initialize() {
-        llhome = (LinearLayout) inflater.inflate(R.layout.activity_home, null);//GODREJ
+        llhome = (LinearLayout) inflater.inflate(R.layout.activity_home, null);
         llBody.addView(llhome, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         btnMenu.setVisibility(View.GONE);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        tabLayout = (TabLayout) llhome.findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) llhome.findViewById(R.id.viewPager);
 
         tabLayout.addTab(tabLayout.newTab().setText("Book Order"));
         tabLayout.addTab(tabLayout.newTab().setText("Order List"));
