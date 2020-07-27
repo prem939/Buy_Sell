@@ -10,7 +10,7 @@ public class AddsupplierActivity extends BaseActivity {
 
     @Override
     public void initialize() {
-        lladdsupplier = (LinearLayout) inflater.inflate(R.layout.activity_addsupplier, null);//GODREJ
+        lladdsupplier = (LinearLayout) inflater.inflate(R.layout.activity_addsupplier, null);
         llBody.addView(lladdsupplier, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
     }
 }

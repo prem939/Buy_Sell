@@ -29,9 +29,9 @@ public class BookorderAdapter extends RecyclerView.Adapter<BookorderAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        LayoutInflater inflater = (LayoutInflater.from(context));
-        View view = inflater.inflate(R.layout.item_list, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_list, null, false);
+        RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        view.setLayoutParams(lp);
         return new ViewHolder(view);
     }
 

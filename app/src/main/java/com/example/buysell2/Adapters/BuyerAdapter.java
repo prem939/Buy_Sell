@@ -22,8 +22,9 @@ public class BuyerAdapter extends RecyclerView.Adapter<BuyerAdapter.ViewHolder> 
     @NonNull
     @Override
     public BuyerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater=(LayoutInflater.from(mcontext));
-        View view=inflater.inflate(R.layout.rv_market_buyer,null);
+        View view = LayoutInflater.from(mcontext).inflate(R.layout.rv_market_buyer, null, false);
+        RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        view.setLayoutParams(lp);
         return new ViewHolder(view);
     }
 

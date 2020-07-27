@@ -30,7 +30,7 @@ public class MarketSellerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.seller_screen, container, false);
         rvseller = view.findViewById(R.id.rv_market_seller);
-        sellerAdapter =  new SellerAdapter(getActivity());
+        sellerAdapter = new SellerAdapter(getActivity());
         rvseller.setHasFixedSize(true);
         rvseller.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvseller.setAdapter(sellerAdapter);

@@ -1,12 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray_lite2">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_products"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:padding="@dimen/_5sdp"
-        android:layout_height="match_parent">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_products"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/multiple_actions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/app_color"
+            fab:fab_addButtonColorNormal="@color/app_color"
+            fab:fab_addButtonColorPressed="@color/white_pressed"
+            fab:fab_addButtonPlusIconColor="@color/white"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/action_a"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    fab:fab_colorNormal="@color/app_color"
+                    android:src="@drawable/cart"
+                    android:backgroundTint="@color/app_color"
+                    fab:fab_colorPressed="@color/white"
+                    fab:fab_title="Action A" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Add item"
+                    android:textStyle="bold"
+                    android:textColor="@color/app_color">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/action_b"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    fab:fab_colorNormal="@color/app_color"
+                    fab:fab_colorPressed="@color/white"
+                    android:backgroundTint="@color/app_color"
+                    android:src="@drawable/cart"
+                    fab:fab_title="Action B" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Up item"
+                    android:textStyle="bold"
+                    android:textColor="@color/app_color">
+                </TextView>
+            </LinearLayout>
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+    </RelativeLayout>
 </LinearLayout>

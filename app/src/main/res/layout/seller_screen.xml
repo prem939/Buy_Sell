@@ -20,6 +20,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Supplier"
+            android:gravity="center"
             android:textSize="@dimen/_10ssp"
             android:textColor="@color/white">
         </TextView>
@@ -33,6 +34,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Item"
+            android:gravity="center"
             android:textSize="@dimen/_10ssp"
             android:textColor="@color/white">
         </TextView>
@@ -47,6 +49,7 @@
             android:layout_height="wrap_content"
             android:text="MKT Price"
             android:textSize="@dimen/_10ssp"
+            android:gravity="center"
             android:textColor="@color/white">
         </TextView>
         <ImageView
@@ -57,6 +60,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:text="Disc%"
             android:textSize="@dimen/_10ssp"
@@ -72,6 +76,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Qty"
+            android:gravity="center"
             android:textSize="@dimen/_10ssp"
             android:textColor="@color/white">
         </TextView>
@@ -83,6 +88,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:text="Total Amt"
             android:textSize="@dimen/_10ssp"
@@ -95,6 +101,7 @@
         </ImageView>
         <TextView
             android:layout_width="0dp"
+            android:gravity="center"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Select"
@@ -110,6 +117,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Location"
             android:textSize="@dimen/_10ssp"
             android:textColor="@color/white">

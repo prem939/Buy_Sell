@@ -29,6 +29,7 @@ public class MarketBuyerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.buyers_screen, container, false);
         rvBuyer = view.findViewById(R.id.rv_market_buyer);
+
         buyerAdapter = new BuyerAdapter(getActivity());
         rvBuyer.setHasFixedSize(true);
         rvBuyer.setLayoutManager(new LinearLayoutManager(getActivity()));

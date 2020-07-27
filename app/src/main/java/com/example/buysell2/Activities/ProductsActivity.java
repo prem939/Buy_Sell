@@ -11,6 +11,17 @@ import com.example.buysell2.Do.ProductDo_new;
 import com.example.buysell2.R;
 
 import java.util.ArrayList;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
+import android.app.Activity;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProductsActivity extends BaseActivity {
     private LinearLayout llProductScreen;
@@ -28,6 +39,35 @@ public class ProductsActivity extends BaseActivity {
         productsAdaptor = new ProductsAdaptor(this,getDummyData());
         rv_products.setLayoutManager(new LinearLayoutManager(this));
         rv_products.setAdapter(productsAdaptor);
+
+
+
+//        FloatingActionButton actionA = new FloatingActionButton(getBaseContext());
+        FloatingActionButton actionA = llProductScreen.findViewById(R.id.action_a);
+        actionA.setTitle("first");
+        actionA.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"first",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        FloatingActionButton actionB = new FloatingActionButton(getBaseContext());
+        FloatingActionButton actionB = llProductScreen.findViewById(R.id.action_b);
+        actionB.setTitle("second");
+        actionB.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"second",Toast.LENGTH_SHORT).show();
+            }
+        });
+        final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
+//        menuMultipleActions.addButton(actionA);
+//        menuMultipleActions.addButton(actionB);
+
+//        ShapeDrawable drawable = new ShapeDrawable(new OvalShape());
+//        drawable.getPaint().setColor(getResources().getColor(R.color.white));
+
     }
     public ArrayList<ProductDo_new> getDummyData(){
         ArrayList<ProductDo_new> list_products = new ArrayList<>();

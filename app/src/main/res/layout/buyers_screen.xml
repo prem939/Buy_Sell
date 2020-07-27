@@ -2,101 +2,112 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/_5sdp"
     android:background="@color/gray_lite2"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/_5sdp">
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/app_color"
         android:orientation="horizontal">
+
         <ImageView
             android:layout_width="@dimen/_1sdp"
             android:layout_height="match_parent"
-            android:background="@color/white">
-        </ImageView>
+            android:background="@color/white"></ImageView>
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="Buyer Name"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/white">
-        </TextView>
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"></TextView>
+
         <ImageView
             android:layout_width="@dimen/_1sdp"
             android:layout_height="match_parent"
-            android:background="@color/white">
-        </ImageView>
+            android:background="@color/white"></ImageView>
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="Item Name"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/white">
-        </TextView>
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"></TextView>
+
         <ImageView
             android:layout_width="@dimen/_1sdp"
             android:layout_height="match_parent"
-            android:background="@color/white">
-        </ImageView>
+            android:background="@color/white"></ImageView>
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="Qty"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/white">
-        </TextView>
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"></TextView>
+
         <ImageView
             android:layout_width="@dimen/_1sdp"
             android:layout_height="match_parent"
-            android:background="@color/white">
-        </ImageView>
+            android:background="@color/white"></ImageView>
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="Quote"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/white">
-        </TextView>
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"></TextView>
+
         <ImageView
             android:layout_width="@dimen/_1sdp"
             android:layout_height="match_parent"
-            android:background="@color/white">
-        </ImageView>
+            android:background="@color/white"></ImageView>
+
         <TextView
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Total"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/white">
-        </TextView>
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"></TextView>
+
         <ImageView
             android:layout_width="@dimen/_1sdp"
             android:layout_height="match_parent"
             android:background="@color/white">
         </ImageView>
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1.5"
             android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="center"
             android:text="Ship To"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/white">
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp">
         </TextView>
+
         <ImageView
             android:layout_width="@dimen/_1sdp"
             android:layout_height="match_parent"
             android:background="@color/white">
         </ImageView>
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_market_buyer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rv_market_buyer">
+        android:layout_height="wrap_content">
     </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

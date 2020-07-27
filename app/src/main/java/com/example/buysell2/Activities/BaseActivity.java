@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.buysell2.Adapters.CartAdaptor;
 import com.example.buysell2.common.AppConstants;
 import com.example.buysell2.Do.DashbordDo;
 import com.example.buysell2.R;
@@ -85,6 +86,14 @@ public abstract class BaseActivity extends FragmentActivity {
                 }
             }
         });
+
+        img_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BaseActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
         initialize();
     }
 
@@ -104,6 +113,7 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     public abstract void initialize();
+
 
     public void closeDrawer() {
         drawerLayout.closeDrawer(flMenu);
