@@ -65,6 +65,7 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemSel
                 else {
                     Intent intent	=	new Intent(LoginActivity.this, HomeScreenActivity_new.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

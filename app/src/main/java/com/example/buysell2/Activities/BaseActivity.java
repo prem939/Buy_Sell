@@ -3,6 +3,7 @@ package com.example.buysell2.Activities;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -41,13 +42,11 @@ public abstract class BaseActivity extends FragmentActivity {
     public ListView lvDashBoard;
     public Preference preference;
     public CustomDialog customDialog;
-    private String strAdminMenuOption[];
-    private String strBuyerMenuOption[];
-    private String strSupplierMenuOption[];
-    private String strSalesManMenuOption[];
+    private String menu[];
     public TextView txt_head;
-    public ImageView img_cart;
+    public ImageView img_cart,img_Menu;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,14 +55,19 @@ public abstract class BaseActivity extends FragmentActivity {
         preference = new Preference(getApplicationContext());
         inflater = this.getLayoutInflater();
         initialization();
+
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        lvDashBoard.setDivider(new ColorDrawable(android.R.color.transparent));
+        lvDashBoard.setDividerHeight(0);
+
         if (adapter == null) {
             runOnUiThread(new Runnable() {
                 @SuppressLint("WrongConstant")
                 @Override
                 public void run() {
-                    adapter = new DashBoardOptionsCustomAdapter(AppConstants.LoadCheckinmenuforAdmin());
+                    adapter = new DashBoardOptionsCustomAdapter(AppConstants.menu());
                     lvDashBoard.setAdapter(adapter);
-                    lvDashBoard.setAdapter(adapter);
+//                    lvDashBoard.setAdapter(adapter);
                     lvDashBoard.setCacheColorHint(0);
                     lvDashBoard.setScrollBarStyle(0);
                     lvDashBoard.setScrollbarFadingEnabled(true);
@@ -75,14 +79,14 @@ public abstract class BaseActivity extends FragmentActivity {
 
         }
 
-        btnMenu.setOnClickListener(new View.OnClickListener() {
+        img_Menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 hideKeyBoard(v);
 //                hideCustomKeyBoard();
                 TopBarMenuClick();
                 if (adapter != null) {
-                    adapter.refreshList(AppConstants.LoadCheckinmenuforAdmin());
+                    adapter.refreshList(AppConstants.menu());
                 }
             }
         });
@@ -100,16 +104,17 @@ public abstract class BaseActivity extends FragmentActivity {
     private void initialization() {
         llBody = findViewById(R.id.llBody);
         llheader = findViewById(R.id.llheader);
-        btnMenu = findViewById(R.id.btnMenu);
+//        btnMenu = findViewById(R.id.btnMenu);
+        img_Menu = findViewById(R.id.img_Menu);
         flMenu = findViewById(R.id.flMenu);
         drawerLayout = findViewById(R.id.drawerLayout);
         lvDashBoard = findViewById(R.id.lvDashBoard);
         txt_head = findViewById(R.id.txt_head);
         img_cart = findViewById(R.id.img_cart);
-        strAdminMenuOption = AppConstants.AdminCheckedInMenuOption;
-        strBuyerMenuOption = AppConstants.CustomerCheckedInMenuOption;
-        strSalesManMenuOption = AppConstants.SalesPersonCheckedInMenuOption;
-        strSupplierMenuOption = AppConstants.SupplierCheckedInMenuOption;
+//        strAdminMenuOption = AppConstants.AdminCheckedInMenuOption;
+//        strBuyerMenuOption = AppConstants.CustomerCheckedInMenuOption;
+//        strSalesManMenuOption = AppConstants.SalesPersonCheckedInMenuOption;
+        menu = AppConstants.menu;
     }
 
     public abstract void initialize();
@@ -126,10 +131,10 @@ public abstract class BaseActivity extends FragmentActivity {
     public void TopBarMenuClick() {
         if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(Gravity.START);
-            btnMenu.setBackground(getResources().getDrawable(R.drawable.menu));
+            img_Menu.setImageResource(R.mipmap.menu);
         } else {
             drawerLayout.openDrawer(Gravity.START);
-            btnMenu.setBackground(getResources().getDrawable(R.drawable.back_arrow));
+            img_Menu.setImageResource(R.mipmap.back_arrow);
         }
     }
 
@@ -168,9 +173,9 @@ public abstract class BaseActivity extends FragmentActivity {
             if (convertView == null) {
                 convertView = getLayoutInflater().inflate(R.layout.dashbord_option_call, null);
                 TextView menuListName = convertView.findViewById(R.id.textViewName);
-
+                ImageView menulisticon = convertView.findViewById(R.id.img_menuicon);
                 menuListName.setText(dashbordDo.getName());
-
+                menulisticon.setImageResource(dashbordDo.getIcon());
                 convertView.setTag(dashbordDo.getName());
                 convertView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -201,25 +206,30 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     private void moveToNextActivityForCheckInAdmin(String strOptionSelected) {
-        if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[0]))) {
-            Intent intent = new Intent(BaseActivity.this, CreateSupplierActivity.class);
-            startActivity(intent);
-        } else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[1]))) {
-//            Intent intent = new Intent(BaseActivity.this, CheckInOptionActivity.class);
-//            startActivity(intent);
-        } else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[2]))) {
-//            Intent intent = new Intent(BaseActivity.this, CheckInOptionActivity.class);
-//            startActivity(intent);
-        } else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[3]))) {
-//            Intent intent = new Intent(BaseActivity.this, CheckInOptionActivity.class);
-//            startActivity(intent);
-        } else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[4]))) {
+        if (strOptionSelected.equalsIgnoreCase((menu[0]))) {
             Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
             startActivity(intent);
-        }  else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[5]))) {
+        } else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
             Intent intent = new Intent(BaseActivity.this, HomeScreenActivity.class);
             startActivity(intent);
         }
+        else if (strOptionSelected.equalsIgnoreCase((menu[2]))) {
+            showCustomDialog(this, getString(R.string.warning),  getResources().getString(R.string.do_you_want_to_logout), getString(R.string.OK), null, "logout");
+
+        }
+//        else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[2]))) {
+////            Intent intent = new Intent(BaseActivity.this, CheckInOptionActivity.class);
+////            startActivity(intent);
+//        } else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[3]))) {
+////            Intent intent = new Intent(BaseActivity.this, CheckInOptionActivity.class);
+////            startActivity(intent);
+//        } else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[4]))) {
+//            Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
+//            startActivity(intent);
+//        }  else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[5]))) {
+//            Intent intent = new Intent(BaseActivity.this, HomeScreenActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     // For showing Dialog message.
@@ -276,6 +286,11 @@ public abstract class BaseActivity extends FragmentActivity {
                 @Override
                 public void onClick(View v) {
                     customDialog.dismiss();
+                    if(from.equalsIgnoreCase("logout")){
+                        Intent intent = new Intent(BaseActivity.this, LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
                 }
             });
 

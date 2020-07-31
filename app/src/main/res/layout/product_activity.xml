@@ -42,7 +42,7 @@
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     fab:fab_colorNormal="@color/app_color"
-                    android:src="@drawable/cart"
+                    android:src="@drawable/add_item"
                     android:backgroundTint="@color/app_color"
                     fab:fab_colorPressed="@color/white"
                     fab:fab_title="Action A" />
@@ -70,13 +70,13 @@
                     fab:fab_colorNormal="@color/app_color"
                     fab:fab_colorPressed="@color/white"
                     android:backgroundTint="@color/app_color"
-                    android:src="@drawable/cart"
+                    android:src="@drawable/update_item"
                     fab:fab_title="Action B" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Up item"
+                    android:text="Update item"
                     android:textStyle="bold"
                     android:textColor="@color/app_color">
                 </TextView>

@@ -21,7 +21,7 @@
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:drawableLeft="@drawable/alert"
+            android:drawableLeft="@drawable/warning"
             android:text="Warning!"
             android:gravity="center"
             android:textColor="@color/gray_dark"

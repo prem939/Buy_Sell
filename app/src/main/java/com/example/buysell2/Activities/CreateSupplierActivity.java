@@ -18,9 +18,8 @@ public class CreateSupplierActivity extends BaseActivity implements AdapterView.
 
     @Override
     public void initialize() {
-        llcreate_supplier = (LinearLayout) inflater.inflate(R.layout.activity_create_supplier, null);//GODREJ
+        llcreate_supplier = (LinearLayout) inflater.inflate(R.layout.activity_create_supplier, null);
         llBody.addView(llcreate_supplier, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-//        btnMenu.setVisibility(View.GONE);
         txt_head.setText("Create Supplier");
         spin_country = findViewById(R.id.spin_country);
         CAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, CountryNames);

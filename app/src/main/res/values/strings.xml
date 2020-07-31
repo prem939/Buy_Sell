@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Buy Sell2</string>
 
     <string name="warning">Warning !</string>
@@ -16,11 +16,12 @@
     <string name="pending_del">Pending to deliver</string>
     <string name="pending_rec">Pending to receive</string>
     <string name="pending_pay">Pending to pay</string>
-    <string name="supp_list">Supp list</string>
+    <string name="supp_list">Suppliers \nlist</string>
     <string name="fav_list_item">Fav item \nlist</string>
-    <string name="cust_list">Cust list</string>
+    <string name="cust_list">Customers \nlist</string>
     <string name="so">SO</string>
     <string name="po">PO</string>
+
     <string name="title_activity_demoo">demoo</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -32,4 +33,12 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string name="cr_upd_supp">Create/Update \nSupplies</string>
+    <string name="cr_upd_item">Create/Update \nItems</string>
+    <string name="cr_upd_promo">Create/Update \nPromo</string>
+    <string name="cr_upd_ship">Create/Update \nShip to</string>
+    <string name="cr_upd_bill">Create/Update \nBill to</string>
+
+    <string name="do_you_want_to_logout">Are you sure you want to logout?</string>
 </resources>

@@ -10,24 +10,24 @@
     android:background="@color/app_color"
     android:id="@+id/llheader"
     android:orientation="horizontal">
-    <Button
-        android:id="@+id/btnMenu"
-        android:layout_width="@dimen/_40sdp"
+    <ImageView
+        android:id="@+id/img_Menu"
+        android:layout_width="@dimen/_25sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_margin="@dimen/_5sdp"
-        android:background="@drawable/menu"
+        android:background="@mipmap/menu"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_head"
-        android:textSize="@dimen/_20ssp"
+        android:textSize="@dimen/_23ssp"
         android:text="Buy Sell"
         android:textColor="@color/white"
         android:layout_gravity="center"
         android:textStyle="bold"
-        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
         android:gravity="center_horizontal">
     </TextView>
     <LinearLayout
@@ -40,7 +40,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/img_cart"
         android:padding="@dimen/_10sdp"
-        android:src="@drawable/cart">
+        android:src="@mipmap/cart"
+        >
     </ImageView>
     </LinearLayout>
 </LinearLayout>
@@ -77,24 +78,21 @@
             android:id="@+id/flMenu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:touchscreenBlocksFocus="true"
             android:layout_gravity="start" >
 
             <LinearLayout
                 android:id="@+id/llDashBoard"
-                android:layout_width="190dp"
+                android:layout_width="@dimen/_180sdp"
                 android:layout_height="match_parent"
-                android:background="@color/white"
+                android:background="@color/app_color"
                 android:orientation="vertical"
                 android:visibility="visible" >
 
                 <ListView
                     android:id="@+id/lvDashBoard"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:cacheColorHint="@null"
-                    android:fadingEdge="none"
-                    android:scrollbars="none" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
             </LinearLayout>
         </FrameLayout>
     </androidx.drawerlayout.widget.DrawerLayout>

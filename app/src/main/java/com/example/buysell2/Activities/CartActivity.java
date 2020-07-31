@@ -19,6 +19,8 @@ public class CartActivity extends BaseActivity {
     public void initialize() {
         llCart = (LinearLayout) inflater.inflate(R.layout.cart_screen, null);
         llBody.addView(llCart, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        txt_head.setText("Cart");
+
         img_cart.setVisibility(View.GONE);
         rvcart = llCart.findViewById(R.id.rvCart);
 

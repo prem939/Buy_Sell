@@ -24,7 +24,6 @@ public class HomeScreenActivity extends BaseActivity {
     public void initialize() {
         llhome = (LinearLayout) inflater.inflate(R.layout.activity_home, null);
         llBody.addView(llhome, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        btnMenu.setVisibility(View.GONE);
 
         tabLayout = (TabLayout) llhome.findViewById(R.id.tabLayout);
         viewPager = (ViewPager) llhome.findViewById(R.id.viewPager);
