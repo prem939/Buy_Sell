@@ -95,6 +95,7 @@ public abstract class BaseActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BaseActivity.this, CartActivity.class);
+                intent.putExtra("from",AppConstants.CART);
                 startActivity(intent);
             }
         });
@@ -114,14 +115,18 @@ public abstract class BaseActivity extends FragmentActivity {
 //        strAdminMenuOption = AppConstants.AdminCheckedInMenuOption;
 //        strBuyerMenuOption = AppConstants.CustomerCheckedInMenuOption;
 //        strSalesManMenuOption = AppConstants.SalesPersonCheckedInMenuOption;
-        menu = AppConstants.menu;
+        menu = AppConstants.menu ;
     }
 
     public abstract void initialize();
 
-
+    @SuppressLint("WrongConstant")
     public void closeDrawer() {
-        drawerLayout.closeDrawer(flMenu);
+        if(drawerLayout.isDrawerOpen(Gravity.START))
+        {
+            drawerLayout.closeDrawer(flMenu);
+            img_Menu.setImageResource(R.mipmap.menu);
+        }
     }
 
     /**
@@ -168,6 +173,11 @@ public abstract class BaseActivity extends FragmentActivity {
         }
 
         @Override
+        public int getItemViewType(int position) {
+            return position;
+        }
+
+        @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             DashbordDo dashbordDo = data.get(position);
             if (convertView == null) {
@@ -206,6 +216,7 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     private void moveToNextActivityForCheckInAdmin(String strOptionSelected) {
+        closeDrawer();
         if (strOptionSelected.equalsIgnoreCase((menu[0]))) {
             Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
             startActivity(intent);
@@ -214,22 +225,28 @@ public abstract class BaseActivity extends FragmentActivity {
             startActivity(intent);
         }
         else if (strOptionSelected.equalsIgnoreCase((menu[2]))) {
+            Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
+            intent.putExtra("from",AppConstants.SUPPLIERPAGE);
+            startActivity(intent);
+        }
+        else if (strOptionSelected.equalsIgnoreCase((menu[3]))) {
+            Intent intent = new Intent(BaseActivity.this, CreateSite.class);
+            startActivity(intent);
+        }
+        else if (strOptionSelected.equalsIgnoreCase((menu[4]))) {
+            Intent intent = new Intent(BaseActivity.this, SearchSupplierProduct.class);
+            startActivity(intent);
+        }
+        else if (strOptionSelected.equalsIgnoreCase((menu[5]))) {
+            Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
+            intent.putExtra("from",AppConstants.SELLPAGE);
+            startActivity(intent);
+        }
+        else if (strOptionSelected.equalsIgnoreCase((menu[6]))) {
             showCustomDialog(this, getString(R.string.warning),  getResources().getString(R.string.do_you_want_to_logout), getString(R.string.OK), null, "logout");
 
         }
-//        else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[2]))) {
-////            Intent intent = new Intent(BaseActivity.this, CheckInOptionActivity.class);
-////            startActivity(intent);
-//        } else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[3]))) {
-////            Intent intent = new Intent(BaseActivity.this, CheckInOptionActivity.class);
-////            startActivity(intent);
-//        } else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[4]))) {
-//            Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
-//            startActivity(intent);
-//        }  else if (strOptionSelected.equalsIgnoreCase((strAdminMenuOption[5]))) {
-//            Intent intent = new Intent(BaseActivity.this, HomeScreenActivity.class);
-//            startActivity(intent);
-//        }
+
     }
 
     // For showing Dialog message.

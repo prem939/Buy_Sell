@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/_15sdp"
+    android:layout_margin="@dimen/_10sdp"
     android:background="@color/gray_lite2"
     android:orientation="vertical">
 
@@ -214,7 +214,8 @@
                 android:background="@drawable/btn_round"
                 android:text="Create Item"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp"></Button>
+                android:textSize="@dimen/_15ssp">
+            </Button>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

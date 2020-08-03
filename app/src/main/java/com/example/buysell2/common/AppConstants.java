@@ -12,6 +12,14 @@ import java.util.Vector;
 
 public class AppConstants {
     public static Typeface Roboto_Condensed_Bold, Roboto_Condensed;
+    public static String CUSTOMERLIST = "CUSTOMERLIST";
+    public static String SUPPLLIERLIST = "SUPPLLIERLIST";
+    public static String CART = "CART";
+    public static String FAVOLIST = "FAVOLIST";
+    public static String SUPPLIERPAGE = "SUPPLIERPAGE";
+    public static String SELLPAGE = "SELLPAGE";
+
+//    public static String SUPPLLIERLIST = "SUPPLLIERLIST";
 
 //    public static ArrayList<DashbordDo> LoadCheckinmenuforAdmin() {
 //        ArrayList<DashbordDo> listMenuDOs = new ArrayList<>();
@@ -62,6 +70,7 @@ public class AppConstants {
         }
         return listMenuDOs;
     }
+
     public static ArrayList<DashbordDo> LoadDownmenuforSupplier_SalesMan() {
         ArrayList<DashbordDo> listMenuDOs = new ArrayList<>();
         for (int i = 0; i < Supplier_SalesManCheckedInDownOption.length; i++) {
@@ -82,6 +91,7 @@ public class AppConstants {
         }
         return listMenuDOs;
     }
+
     /*********************************************Pre Sales Customer Menu Options********************************************/
 
 //    public static String AdminCheckedInMenuOption[] = {"Create Supplier", "Add Item and Update Item", "Post ads", "Add supplier", "Make Order","My Orders"};
@@ -89,8 +99,8 @@ public class AppConstants {
 //    public static String SalesPersonCheckedInMenuOption[] = {"Make Order"};
 //    public static String CustomerCheckedInMenuOption[] = {"Add supplier", "Make Order"};
 
-    public static String menu[] = {"Products","Order List", "Log Out"};
-    public static int menu_icons[] = {R.mipmap.files,R.mipmap.ordre_list,R.mipmap.logout};
-    public static String Admin_BuyerCheckeInDownOption[] = {"Supp list","fav item list","PO"};
-    public static String Supplier_SalesManCheckedInDownOption[] = {"Cust list","Supp list","fav item list","SO","PO"};
+    public static String menu[] = {"Products", "Order List", "Supplier List","Create site","Search Prod/Supp","Sell Page","Log Out"};
+    public static int menu_icons[] = {R.mipmap.files, R.mipmap.ordre_list,R.mipmap.files, R.mipmap.ordre_list,R.mipmap.files, R.mipmap.ordre_list, R.mipmap.logout};
+    public static String Admin_BuyerCheckeInDownOption[] = {"Supp list", "fav item list", "PO"};
+    public static String Supplier_SalesManCheckedInDownOption[] = {"Cust list", "Supp list", "fav item list", "SO", "PO"};
 }
