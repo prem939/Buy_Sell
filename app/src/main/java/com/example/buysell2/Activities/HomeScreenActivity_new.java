@@ -16,9 +16,14 @@ public class HomeScreenActivity_new extends BaseActivity {
 
     @Override
     public void initialize() {
-        llhomeScreen = (LinearLayout) inflater.inflate(R.layout.home_screen, null);//GODREJ
+        llhomeScreen = (LinearLayout) inflater.inflate(R.layout.home_screen, null);
         llBody.addView(llhomeScreen, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         initialization();
+        btn_search.setVisibility(View.VISIBLE);
+        img_Menu.setVisibility(View.VISIBLE);
+        img_back.setVisibility(View.GONE);
+        img_cart.setVisibility(View.VISIBLE);
+
 //        llheader.setVisibility(View.GONE);
 //        flMenu.setVisibility(View.GONE);
         ll_ct_upd_supp.setOnClickListener(new View.OnClickListener() {

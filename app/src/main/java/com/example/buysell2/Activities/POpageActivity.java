@@ -19,13 +19,7 @@ public class POpageActivity extends BaseActivity{
         llPoPage = (LinearLayout) inflater.inflate(R.layout.po_page, null);
         llBody.addView(llPoPage, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         txt_head.setText("PO Page");
-        img_Menu.setImageResource(R.mipmap.back_arrow);
-        img_Menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+
         rv_po_page = llPoPage.findViewById(R.id.rv_po_page);
         poPageAdaptor = new POpageAdaptor(this);
         rv_po_page.setLayoutManager(new LinearLayoutManager(this));

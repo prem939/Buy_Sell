@@ -99,7 +99,7 @@ public class AppConstants {
 //    public static String SalesPersonCheckedInMenuOption[] = {"Make Order"};
 //    public static String CustomerCheckedInMenuOption[] = {"Add supplier", "Make Order"};
 
-    public static String menu[] = {"Products", "Order List", "Supplier List","Create site","Search Prod/Supp","Sell Page","Log Out"};
+    public static String menu[] = {"Products", "Supplier List","Create site","Search Prod/Supp","Sell Page","Log Out"};
     public static int menu_icons[] = {R.mipmap.files, R.mipmap.ordre_list,R.mipmap.files, R.mipmap.ordre_list,R.mipmap.files, R.mipmap.ordre_list, R.mipmap.logout};
     public static String Admin_BuyerCheckeInDownOption[] = {"Supp list", "fav item list", "PO"};
     public static String Supplier_SalesManCheckedInDownOption[] = {"Cust list", "Supp list", "fav item list", "SO", "PO"};

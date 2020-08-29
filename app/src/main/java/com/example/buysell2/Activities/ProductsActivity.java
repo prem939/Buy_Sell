@@ -1,5 +1,6 @@
 package com.example.buysell2.Activities;
 
+import android.content.Intent;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
@@ -32,8 +33,10 @@ public class ProductsActivity extends BaseActivity {
         llProductScreen = (LinearLayout) inflater.inflate(R.layout.product_activity, null);//GODREJ
         llBody.addView(llProductScreen, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         txt_head.setText("Products");
-//        llheader.setVisibility(View.GONE);
-//        flMenu.setVisibility(View.GONE);
+
+        img_back.setVisibility(View.VISIBLE);
+        img_cart.setVisibility(View.GONE);
+        img_back.setVisibility(View.VISIBLE);
 
         rv_products = llProductScreen.findViewById(R.id.rv_products);
         productsAdaptor = new ProductsAdaptor(this,getDummyData());
@@ -48,7 +51,8 @@ public class ProductsActivity extends BaseActivity {
         actionA.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"first",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ProductsActivity.this, CreateItemActivity.class);
+                startActivity(intent);
             }
         });
 

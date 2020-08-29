@@ -8,14 +8,14 @@
     <color name="white">#ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="gray_dark">#4B4A45</color>
-    <color name="gray_light">#A1A1A1</color>
+    <color name="gray_light">#AAA7A7</color>
     <color name="black">#1b2a30</color>
     <color name="lite_green">#8BFF90</color>
 
     <color name="dark">#FF222222</color>
     <color name="light">#FFEEEEEE</color>
     <color name="orange">#FFA500</color>
-    <color name="gray_lite2">#F1EFEF</color>
+    <color name="gray_lite2">#808080</color>
     <color name="yellow_lite">#F6EA82</color>
     <color name="yellow">#FFE500</color>
 
@@ -33,4 +33,5 @@
     <color name="darkpurple">#a569bd</color>
     <color name="pinky">#fe104d</color>
     <color name="lightgray">#808080</color>
+    <color name="menuColor">#353b4f</color>
 </resources>

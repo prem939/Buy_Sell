@@ -13,12 +13,5 @@ public class AddPromoActivity extends BaseActivity {
         llCreatePromo = (LinearLayout) inflater.inflate(R.layout.add_promo, null);
         llBody.addView(llCreatePromo, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         txt_head.setText("Add Promo");
-        img_Menu.setImageResource(R.mipmap.back_arrow);
-        img_Menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
     }
 }

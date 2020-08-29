@@ -83,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="User Name"
-                    android:textColor="@color/gray_light"
+                    android:textColor="@color/half_black"
                     android:textSize="@dimen/_10sdp" />
 
                 <EditText
@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Password"
-                    android:textColor="@color/gray_light"
+                    android:textColor="@color/half_black"
                     android:textSize="@dimen/_10sdp" />
 
                 <EditText
@@ -156,6 +156,14 @@
                     android:textSize="@dimen/_10sdp">
                 </Button>
             </LinearLayout>
+            <ProgressBar
+                android:layout_width="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:id="@+id/process_bar"
+                android:visibility="gone"
+                android:indeterminateTint="@color/white"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="@dimen/_35sdp"/>
         </LinearLayout>
     </LinearLayout>
     <ScrollView
@@ -198,7 +206,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="First Name"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/half_black"
             android:textSize="@dimen/_10ssp" />
 
         <EditText
@@ -223,7 +231,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Last Name"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/half_black"
             android:textSize="@dimen/_10ssp" />
 
         <EditText
@@ -248,7 +256,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="User Type"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/half_black"
             android:textSize="@dimen/_10ssp" />
             <Spinner
                 android:layout_gravity="center"
@@ -272,7 +280,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email"
-                android:textColor="@color/gray_light"
+                android:textColor="@color/half_black"
                 android:textSize="@dimen/_10ssp" />
 
             <EditText
@@ -296,7 +304,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Phone"
-                android:textColor="@color/gray_light"
+                android:textColor="@color/half_black"
                 android:textSize="@dimen/_10ssp" />
 
             <EditText
@@ -320,7 +328,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password"
-                android:textColor="@color/gray_light"
+                android:textColor="@color/half_black"
                 android:textSize="@dimen/_10ssp" />
 
             <EditText

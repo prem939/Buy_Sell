@@ -21,13 +21,6 @@ public class SupplierListActivity extends BaseActivity {
         llBody.addView(llSupplierList, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
         txt_head.setText((getIntent().getStringExtra("from").equalsIgnoreCase(AppConstants.CUSTOMERLIST)) ? "Customer List" : "Supplier List");
-        img_Menu.setImageResource(R.mipmap.back_arrow);
-        img_Menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         rv_supplier_list =  llSupplierList.findViewById(R.id.rv_supplier_list);
         supplierListAdaptor = new SupplierListAdaptor(this);

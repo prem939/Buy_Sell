@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,10 +14,12 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -34,8 +38,8 @@ import java.util.List;
 
 public abstract class BaseActivity extends FragmentActivity {
     public LayoutInflater inflater;
-    public LinearLayout llBody, llheader;
-    public Button btnMenu;
+    public LinearLayout llBody, llheader,llheader2;
+    public Button btnMenu,btn_search;
     public FrameLayout flMenu;
     public DrawerLayout drawerLayout;
     protected DashBoardOptionsCustomAdapter adapter;
@@ -44,7 +48,8 @@ public abstract class BaseActivity extends FragmentActivity {
     public CustomDialog customDialog;
     private String menu[];
     public TextView txt_head;
-    public ImageView img_cart,img_Menu;
+    public ImageView img_cart,img_Menu,img_back;
+    public EditText edtSearch_bar;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -99,12 +104,26 @@ public abstract class BaseActivity extends FragmentActivity {
                 startActivity(intent);
             }
         });
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BaseActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
         initialize();
     }
 
     private void initialization() {
         llBody = findViewById(R.id.llBody);
         llheader = findViewById(R.id.llheader);
+        llheader2 = findViewById(R.id.llheader2);
 //        btnMenu = findViewById(R.id.btnMenu);
         img_Menu = findViewById(R.id.img_Menu);
         flMenu = findViewById(R.id.flMenu);
@@ -112,6 +131,9 @@ public abstract class BaseActivity extends FragmentActivity {
         lvDashBoard = findViewById(R.id.lvDashBoard);
         txt_head = findViewById(R.id.txt_head);
         img_cart = findViewById(R.id.img_cart);
+        img_back = findViewById(R.id.img_back);
+        btn_search = findViewById(R.id.btn_search);
+        edtSearch_bar = findViewById(R.id.edtSearch_bar);
 //        strAdminMenuOption = AppConstants.AdminCheckedInMenuOption;
 //        strBuyerMenuOption = AppConstants.CustomerCheckedInMenuOption;
 //        strSalesManMenuOption = AppConstants.SalesPersonCheckedInMenuOption;
@@ -220,30 +242,31 @@ public abstract class BaseActivity extends FragmentActivity {
         if (strOptionSelected.equalsIgnoreCase((menu[0]))) {
             Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
             startActivity(intent);
-        } else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
-            Intent intent = new Intent(BaseActivity.this, HomeScreenActivity.class);
-            startActivity(intent);
         }
-        else if (strOptionSelected.equalsIgnoreCase((menu[2]))) {
+//        else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
+//            Intent intent = new Intent(BaseActivity.this, HomeScreenActivity.class);
+//            startActivity(intent);
+//        }
+        else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
             Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
             intent.putExtra("from",AppConstants.SUPPLIERPAGE);
             startActivity(intent);
         }
-        else if (strOptionSelected.equalsIgnoreCase((menu[3]))) {
+        else if (strOptionSelected.equalsIgnoreCase((menu[2]))) {
             Intent intent = new Intent(BaseActivity.this, CreateSite.class);
             startActivity(intent);
         }
-        else if (strOptionSelected.equalsIgnoreCase((menu[4]))) {
+        else if (strOptionSelected.equalsIgnoreCase((menu[3]))) {
             Intent intent = new Intent(BaseActivity.this, SearchSupplierProduct.class);
             startActivity(intent);
         }
-        else if (strOptionSelected.equalsIgnoreCase((menu[5]))) {
+        else if (strOptionSelected.equalsIgnoreCase((menu[4]))) {
             Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
             intent.putExtra("from",AppConstants.SELLPAGE);
             startActivity(intent);
         }
-        else if (strOptionSelected.equalsIgnoreCase((menu[6]))) {
-            showCustomDialog(this, getString(R.string.warning),  getResources().getString(R.string.do_you_want_to_logout), getString(R.string.OK), null, "logout");
+        else if (strOptionSelected.equalsIgnoreCase((menu[5]))) {
+            showCustomDialog(this, getString(R.string.warning),  getResources().getString(R.string.do_you_want_to_logout), getString(R.string.OK), "Cancel", "logout");
 
         }
 
@@ -298,7 +321,11 @@ public abstract class BaseActivity extends FragmentActivity {
             tvTitle.setText("" + strTitle);
             tvMessage.setText("" + strMessage);
             btnYes.setText("" + firstBtnName);
-
+            if(secondBtnName.equalsIgnoreCase("")){
+                btnNo.setVisibility(View.GONE);
+            }else {
+                btnYes.setText("" + secondBtnName);
+            }
             btnYes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -331,4 +358,21 @@ public abstract class BaseActivity extends FragmentActivity {
     public void showCustomDialog(Context context, String strTitle, String strMessage, String firstBtnName, String secondBtnName, String from) {
         runOnUiThread(new RunshowCustomDialogs(context, strTitle, strMessage, firstBtnName, secondBtnName, from, true));
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+    public boolean isNetworkConnectionAvailable(Context context)
+    {
+        boolean isNetworkConnectionAvailable = false;
+        @SuppressLint("WrongConstant") ConnectivityManager connectivityManager = (ConnectivityManager) context	.getSystemService("connectivity");
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+
+        if (activeNetworkInfo != null)
+            isNetworkConnectionAvailable = activeNetworkInfo.getState() == NetworkInfo.State.CONNECTED;
+
+        return isNetworkConnectionAvailable;
+    }
+
 }

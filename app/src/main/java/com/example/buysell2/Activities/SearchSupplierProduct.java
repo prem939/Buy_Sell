@@ -13,12 +13,5 @@ public class SearchSupplierProduct extends BaseActivity {
         llSearchSupplierProduct = (LinearLayout) inflater.inflate(R.layout.serach_supplier_product, null);
         llBody.addView(llSearchSupplierProduct, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         txt_head.setText("Search For Supp/Prod");
-        img_Menu.setImageResource(R.mipmap.back_arrow);
-        img_Menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
     }
 }

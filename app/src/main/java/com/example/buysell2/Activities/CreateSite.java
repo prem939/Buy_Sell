@@ -16,13 +16,7 @@ public class CreateSite extends BaseActivity {
         llCreateSite = (LinearLayout) inflater.inflate(R.layout.site_screen, null);//GODREJ
         llBody.addView(llCreateSite, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         txt_head.setText("Create Site");
-        img_Menu.setImageResource(R.mipmap.back_arrow);
-        img_Menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+
         img_check = llCreateSite.findViewById(R.id.img_check);
         initilization();
         img_check.setOnClickListener(new View.OnClickListener() {
