@@ -1,137 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:card_view="http://schemas.android.com/tools"
     android:background="@color/gray_light"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:weightSum="3"
-        android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.8"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.75"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:id="@+id/ll_ct_upd_supp"
-                android:background="@drawable/green_cornors">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_10ssp"
-                    android:layout_gravity="center"
-                    android:text="@string/cr_upd_supp">
-                </TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:id="@+id/ll_ct_upd_item"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:background="@drawable/purple_cornors"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:textSize="@dimen/_10ssp"
-                    android:textColor="@color/white"
-                    android:text="@string/cr_upd_item">
-                </TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:id="@+id/cv_ct_up_promo"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:background="@drawable/yellow_cornors"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:textSize="@dimen/_10ssp"
-                    android:textColor="@color/white"
-                    android:text="@string/cr_upd_promo">
-                </TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:id="@+id/ll_ct_up_shipto"
-                android:background="@drawable/pinky_coronrs"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_10ssp"
-                    android:text="@string/cr_upd_ship">
-                </TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                card_view:cardCornerRadius="8dp"
-                card_view:cardElevation="8dp"
-                android:id="@+id/ll_c_up_billto"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:background="@drawable/darkblue_cornors"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_10ssp"
-                    android:text="@string/cr_upd_bill">
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="2.2">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.5"
+                android:layout_weight="0.4"
                 android:padding="@dimen/_16sdp">
-
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="@dimen/_90sdp"
                     android:layout_height="@dimen/_90sdp"
                     android:layout_centerInParent="true"
-                    android:src="@color/gray_light"
+                    android:src="@color/gray_dark"
                     app:civ_border_color="@color/dark"
+                    android:id="@+id/imgUserProfilePic"
                     app:civ_border_width="@dimen/_2sdp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/_76sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_26sdp"
+                        android:layout_height="@dimen/_26sdp"
+                        android:id="@+id/imgEditUserDetails"
+                        android:src="@drawable/edit_icon" />
+                </LinearLayout>
+
+
+
             </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
                 android:layout_marginLeft="@dimen/_3sdp"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:layout_marginRight="@dimen/_3sdp"
+                android:layout_weight="1"
                 android:background="@drawable/round"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:id="@+id/llsupp_acc"
                     android:layout_width="match_parent"
@@ -146,7 +67,7 @@
                         android:layout_weight="1"
                         android:text="@string/supp_acc"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp"/>
 
                     <TextView
                         android:id="@+id/txtsupp_acc"
@@ -155,8 +76,9 @@
                         android:layout_weight="1"
                         android:text="5"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/llsupp_item"
                     android:layout_width="match_parent"
@@ -182,6 +104,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp"></TextView>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/llpending_deliver"
                     android:layout_width="match_parent"
@@ -207,6 +130,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp"></TextView>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/llpending_receiver"
                     android:layout_width="match_parent"
@@ -232,6 +156,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp"></TextView>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/llpending_order"
                     android:layout_width="match_parent"
@@ -257,6 +182,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp"></TextView>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/llpending_pay"
                     android:layout_width="match_parent"
@@ -271,8 +197,7 @@
                         android:layout_weight="1"
                         android:text="@string/pending_pay"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp">
-                    </TextView>
+                        android:textSize="@dimen/_10sdp"></TextView>
 
                     <TextView
                         android:id="@+id/txtPending_pay"
@@ -281,8 +206,7 @@
                         android:layout_weight="1"
                         android:text="30"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp">
-                    </TextView>
+                        android:textSize="@dimen/_10sdp"></TextView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -312,67 +236,67 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/_5sdp"
-        android:layout_weight="0.25"
+        android:layout_weight="0.11"
         android:orientation="horizontal">
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/cust_list"
-            android:textSize="@dimen/_12ssp"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:layout_weight="1"
             android:id="@+id/txtCust_list"
-            android:background="@drawable/round">
-        </TextView>
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/supp_list"
-            android:gravity="center"
-            android:textColor="@color/black"
             android:layout_weight="1"
-            android:textSize="@dimen/_12ssp"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:text="@string/cust_list"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"/>
+
+        <TextView
             android:id="@+id/txtSupp_list"
-            android:background="@drawable/round">
-        </TextView>
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/fav_list_item"
-            android:gravity="center"
-            android:textColor="@color/black"
             android:layout_weight="1"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:text="@string/supp_list"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"/>
+
+        <TextView
             android:id="@+id/txtfav_item_list"
-            android:textSize="@dimen/_12ssp"
-            android:background="@drawable/round">
-        </TextView>
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/so"
-            android:gravity="center"
-            android:textColor="@color/black"
             android:layout_weight="1"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:text="@string/fav_list_item"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"/>
+
+        <TextView
             android:id="@+id/txt_so"
-            android:textSize="@dimen/_12ssp"
-            android:background="@drawable/round">
-        </TextView>
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/po"
-            android:gravity="center"
-            android:textColor="@color/black"
             android:layout_weight="1"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:text="@string/so"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"/>
+
+        <TextView
             android:id="@+id/txt_po"
-            android:background="@drawable/round">
-        </TextView>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:text="@string/po"
+            android:textColor="@color/black"/>
     </LinearLayout>
 </LinearLayout>

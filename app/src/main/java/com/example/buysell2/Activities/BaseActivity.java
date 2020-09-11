@@ -21,10 +21,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.buysell2.Adapters.CartAdaptor;
 import com.example.buysell2.common.AppConstants;
@@ -38,18 +41,18 @@ import java.util.List;
 
 public abstract class BaseActivity extends FragmentActivity {
     public LayoutInflater inflater;
-    public LinearLayout llBody, llheader,llheader2;
-    public Button btnMenu,btn_search;
+    public LinearLayout llBody, llheader, llheader2;
+    public Button btnMenu, btn_search;
     public FrameLayout flMenu;
     public DrawerLayout drawerLayout;
     protected DashBoardOptionsCustomAdapter adapter;
     public ListView lvDashBoard;
     public Preference preference;
     public CustomDialog customDialog;
-    private String menu[];
     public TextView txt_head;
-    public ImageView img_cart,img_Menu,img_back;
+    public ImageView img_cart, img_Menu, img_back;
     public EditText edtSearch_bar;
+    private String UserType = "Admin";
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -60,28 +63,19 @@ public abstract class BaseActivity extends FragmentActivity {
         preference = new Preference(getApplicationContext());
         inflater = this.getLayoutInflater();
         initialization();
-
-        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        lvDashBoard.setDivider(new ColorDrawable(android.R.color.transparent));
-        lvDashBoard.setDividerHeight(0);
+        if (!preference.getStringFromPreference(Preference.TYPE, "").equalsIgnoreCase("")) {
+            UserType = preference.getStringFromPreference(Preference.TYPE, "");
+        }
 
         if (adapter == null) {
             runOnUiThread(new Runnable() {
                 @SuppressLint("WrongConstant")
                 @Override
                 public void run() {
-                    adapter = new DashBoardOptionsCustomAdapter(AppConstants.menu());
+                    adapter = new DashBoardOptionsCustomAdapter(AppConstants.admin_menu());
                     lvDashBoard.setAdapter(adapter);
-//                    lvDashBoard.setAdapter(adapter);
-                    lvDashBoard.setCacheColorHint(0);
-                    lvDashBoard.setScrollBarStyle(0);
-                    lvDashBoard.setScrollbarFadingEnabled(true);
-                    lvDashBoard.setDividerHeight(1);
-                    lvDashBoard.setDivider(getResources().getDrawable(R.drawable.saparetor_dash));
-
                 }
             });
-
         }
 
         img_Menu.setOnClickListener(new View.OnClickListener() {
@@ -91,16 +85,19 @@ public abstract class BaseActivity extends FragmentActivity {
 //                hideCustomKeyBoard();
                 TopBarMenuClick();
                 if (adapter != null) {
-                    adapter.refreshList(AppConstants.menu());
+                    if (UserType.equalsIgnoreCase("Admin") || UserType.equalsIgnoreCase("Supplier")) {
+                        adapter.refreshList(AppConstants.admin_menu());
+                    } else {
+                        adapter.refreshList(AppConstants.customer_menu());
+                    }
                 }
             }
         });
-
         img_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BaseActivity.this, CartActivity.class);
-                intent.putExtra("from",AppConstants.CART);
+                intent.putExtra("from", AppConstants.CART);
                 startActivity(intent);
             }
         });
@@ -115,6 +112,27 @@ public abstract class BaseActivity extends FragmentActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BaseActivity.this, SearchActivity.class);
                 startActivity(intent);
+            }
+        });
+        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+                img_Menu.setImageResource(R.mipmap.back_arrow);
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+                img_Menu.setImageResource(R.mipmap.menu);
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
             }
         });
         initialize();
@@ -134,18 +152,13 @@ public abstract class BaseActivity extends FragmentActivity {
         img_back = findViewById(R.id.img_back);
         btn_search = findViewById(R.id.btn_search);
         edtSearch_bar = findViewById(R.id.edtSearch_bar);
-//        strAdminMenuOption = AppConstants.AdminCheckedInMenuOption;
-//        strBuyerMenuOption = AppConstants.CustomerCheckedInMenuOption;
-//        strSalesManMenuOption = AppConstants.SalesPersonCheckedInMenuOption;
-        menu = AppConstants.menu ;
     }
 
     public abstract void initialize();
 
     @SuppressLint("WrongConstant")
     public void closeDrawer() {
-        if(drawerLayout.isDrawerOpen(Gravity.START))
-        {
+        if (drawerLayout.isDrawerOpen(Gravity.START)) {
             drawerLayout.closeDrawer(flMenu);
             img_Menu.setImageResource(R.mipmap.menu);
         }
@@ -205,15 +218,14 @@ public abstract class BaseActivity extends FragmentActivity {
             if (convertView == null) {
                 convertView = getLayoutInflater().inflate(R.layout.dashbord_option_call, null);
                 TextView menuListName = convertView.findViewById(R.id.textViewName);
-                ImageView menulisticon = convertView.findViewById(R.id.img_menuicon);
+//                ImageView menulisticon = convertView.findViewById(R.id.img_menuicon);
                 menuListName.setText(dashbordDo.getName());
-                menulisticon.setImageResource(dashbordDo.getIcon());
+//                menulisticon.setImageResource(dashbordDo.getIcon());
                 convertView.setTag(dashbordDo.getName());
                 convertView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         moveToNextActivity(v.getTag().toString());
-//                        Toast.makeText(getApplicationContext(),v.getTag().toString(),Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -233,40 +245,57 @@ public abstract class BaseActivity extends FragmentActivity {
         }
     }
 
-    private void moveToNextActivity(String strOptionSelected) {
+    public void moveToNextActivity(String strOptionSelected) {
         moveToNextActivityForCheckInAdmin(strOptionSelected);
     }
 
-    private void moveToNextActivityForCheckInAdmin(String strOptionSelected) {
-        closeDrawer();
-        if (strOptionSelected.equalsIgnoreCase((menu[0]))) {
-            Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
-            startActivity(intent);
-        }
-//        else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
-//            Intent intent = new Intent(BaseActivity.this, HomeScreenActivity.class);
+    //    private void moveToNextActivityForCheckInAdmin(String strOptionSelected) {
+//        closeDrawer();
+//        if (strOptionSelected.equalsIgnoreCase((menu[0]))) {
+//            Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
 //            startActivity(intent);
 //        }
-        else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
-            Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
-            intent.putExtra("from",AppConstants.SUPPLIERPAGE);
+////        else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
+////            Intent intent = new Intent(BaseActivity.this, HomeScreenActivity.class);
+////            startActivity(intent);
+////        }
+//        else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
+//            Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
+//            intent.putExtra("from", AppConstants.SUPPLIERPAGE);
+//            startActivity(intent);
+//        } else if (strOptionSelected.equalsIgnoreCase((menu[2]))) {
+//            Intent intent = new Intent(BaseActivity.this, CreateSite.class);
+//            startActivity(intent);
+//        } else if (strOptionSelected.equalsIgnoreCase((menu[3]))) {
+//            Intent intent = new Intent(BaseActivity.this, SearchSupplierProduct.class);
+//            startActivity(intent);
+//        } else if (strOptionSelected.equalsIgnoreCase((menu[4]))) {
+//            Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
+//            intent.putExtra("from", AppConstants.SELLPAGE);
+//            startActivity(intent);
+//        } else if (strOptionSelected.equalsIgnoreCase((menu[5]))) {
+//            showCustomDialog(this, getString(R.string.warning), getResources().getString(R.string.do_you_want_to_logout), getString(R.string.OK), getString(R.string.Cancel), "logout");
+//
+//        }
+//
+//    }
+    private void moveToNextActivityForCheckInAdmin(String strOptionSelected) {
+        closeDrawer();
+        if (strOptionSelected.equalsIgnoreCase("Cr/Upd Supplier")) {
+            Intent intent = new Intent(BaseActivity.this, CreateSupplierActivity.class);
             startActivity(intent);
-        }
-        else if (strOptionSelected.equalsIgnoreCase((menu[2]))) {
-            Intent intent = new Intent(BaseActivity.this, CreateSite.class);
+        } else if (strOptionSelected.equalsIgnoreCase("Cr/Upd Products")) {
+            Intent intent = new Intent(BaseActivity.this, CreateItemActivity.class);
             startActivity(intent);
-        }
-        else if (strOptionSelected.equalsIgnoreCase((menu[3]))) {
-            Intent intent = new Intent(BaseActivity.this, SearchSupplierProduct.class);
+        } else if (strOptionSelected.equalsIgnoreCase("Create Promo")) {
+            Intent intent = new Intent(BaseActivity.this, AddPromoActivity.class);
             startActivity(intent);
-        }
-        else if (strOptionSelected.equalsIgnoreCase((menu[4]))) {
-            Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
-            intent.putExtra("from",AppConstants.SELLPAGE);
-            startActivity(intent);
-        }
-        else if (strOptionSelected.equalsIgnoreCase((menu[5]))) {
-            showCustomDialog(this, getString(R.string.warning),  getResources().getString(R.string.do_you_want_to_logout), getString(R.string.OK), "Cancel", "logout");
+        } else if (strOptionSelected.equalsIgnoreCase("Cr/Upd Sites")) {
+            Toast.makeText(getApplicationContext(), "Not yet Implimented", Toast.LENGTH_SHORT).show();
+        } else if (strOptionSelected.equalsIgnoreCase("Add Supplier")) {
+            Toast.makeText(getApplicationContext(), "Not yet Implimented", Toast.LENGTH_SHORT).show();
+        } else if (strOptionSelected.equalsIgnoreCase("Log Out")) {
+            showCustomDialog(this, getString(R.string.warning), getResources().getString(R.string.do_you_want_to_logout), getString(R.string.OK), getString(R.string.Cancel), "logout");
 
         }
 
@@ -321,19 +350,22 @@ public abstract class BaseActivity extends FragmentActivity {
             tvTitle.setText("" + strTitle);
             tvMessage.setText("" + strMessage);
             btnYes.setText("" + firstBtnName);
-            if(secondBtnName.equalsIgnoreCase("")){
+            if (secondBtnName.equalsIgnoreCase("")) {
                 btnNo.setVisibility(View.GONE);
-            }else {
-                btnYes.setText("" + secondBtnName);
+            } else {
+                btnNo.setText("" + secondBtnName);
             }
             btnYes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     customDialog.dismiss();
-                    if(from.equalsIgnoreCase("logout")){
+                    if (from.equalsIgnoreCase("logout")) {
                         Intent intent = new Intent(BaseActivity.this, LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+                    }
+                    if (from.equalsIgnoreCase("UpdateUserData")) {
+                        img_back.performClick();
                     }
                 }
             });
@@ -363,10 +395,10 @@ public abstract class BaseActivity extends FragmentActivity {
     public void onBackPressed() {
         super.onBackPressed();
     }
-    public boolean isNetworkConnectionAvailable(Context context)
-    {
+
+    public boolean isNetworkConnectionAvailable(Context context) {
         boolean isNetworkConnectionAvailable = false;
-        @SuppressLint("WrongConstant") ConnectivityManager connectivityManager = (ConnectivityManager) context	.getSystemService("connectivity");
+        @SuppressLint("WrongConstant") ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
 
         if (activeNetworkInfo != null)

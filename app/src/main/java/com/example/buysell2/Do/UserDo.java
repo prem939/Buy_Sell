@@ -1,9 +1,11 @@
 package com.example.buysell2.Do;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class UserDo implements Serializable {
+    public ArrayList<SupplierMasterDo> listSupplierMaster = new ArrayList<>();
     public int UP_ID = 0;
     public String UP_Name = "";
     public String UP_User_Type = "";
@@ -12,5 +14,4 @@ public class UserDo implements Serializable {
     public int UP_UserID = 0;
     public String UP_Password = "";
     public String UP_Status = "";
-
 }

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_light"
+    android:background="@color/gray_dark"
     android:orientation="vertical">
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Supplier Name"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/gray_dark"
             android:textSize="@dimen/_10sdp" />
 
         <EditText
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item Name"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/gray_dark"
             android:textSize="@dimen/_10sdp" />
 
         <EditText
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item Category"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/gray_dark"
             android:textSize="@dimen/_10sdp" />
 
         <EditText
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Item Sub Category"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/gray_dark"
             android:textSize="@dimen/_10sdp" />
 
         <EditText
@@ -117,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="By Pin Code"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/gray_dark"
             android:textSize="@dimen/_10sdp" />
 
         <EditText
@@ -140,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="By Location"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/gray_dark"
             android:textSize="@dimen/_10sdp" />
 
         <EditText
@@ -163,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="By State"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/gray_dark"
             android:textSize="@dimen/_10sdp" />
 
         <EditText

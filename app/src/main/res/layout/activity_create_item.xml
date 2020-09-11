@@ -5,213 +5,224 @@
     android:background="@color/gray_light"
     android:orientation="vertical">
 
-        <LinearLayout
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/round"
+        android:orientation="vertical">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/round"
-            android:layout_margin="@dimen/_5sdp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/_20sdp"
-                android:paddingRight="@dimen/_20sdp"
-                android:weightSum="3">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/img_item"
-                        android:layout_width="@dimen/_60sdp"
-                        android:layout_height="@dimen/_60sdp"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:src="@drawable/no_image"></ImageView>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:background="@drawable/round"
                     android:orientation="horizontal"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
                     android:weightSum="3">
 
-                    <TextView
-                        android:id="@+id/txt_path"
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/img_item"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_margin="@dimen/_2sdp"
+                            android:src="@drawable/no_image" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="2"
-                        android:paddingLeft="@dimen/_5sdp"
-                        android:text="Uplode item image hear"
-                        android:textColor="@color/gray_light"
-                        android:textSize="@dimen/_10ssp"></TextView>
+                        android:background="@drawable/round"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
-                    <Button
-                        android:id="@+id/btn_uplode"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_12sdp"
-                        android:layout_margin="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:background="@drawable/btn_cancel_grey"
-                        android:text="uplode File"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp"></Button>
+                        <TextView
+                            android:id="@+id/txt_path"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:text="Uplode item image hear"
+                            android:textColor="@color/gray_dark"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <Button
+                            android:id="@+id/btn_uplode"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_cancel_grey"
+                            android:text="uplode File"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_8ssp" />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/_20sdp"
-                android:paddingTop="@dimen/_15sdp"
-                android:paddingRight="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_15sdp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Name"
-                    android:textColor="@color/gray_light"
-                    android:textSize="@dimen/_10sdp" />
-
-                <EditText
-                    android:id="@+id/edit_itemName"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/round"
-                    android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:textSize="@dimen/_15sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/_20sdp"
-                android:paddingRight="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_15sdp">
-
-                <TextView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Category"
-                    android:textColor="@color/gray_light"
-                    android:textSize="@dimen/_10sdp" />
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_15sdp">
 
-                <Spinner
-                    android:id="@+id/spin_itemCategory"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edit_itemName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/round"
-                    android:textSize="@dimen/_10sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/_20sdp"
-                android:paddingRight="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_15sdp"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Type"
-                    android:textColor="@color/gray_light"
-                    android:textSize="@dimen/_10sdp" />
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_15sdp">
 
-                <Spinner
-                    android:id="@+id/spin_itemType"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Category"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <Spinner
+                        android:id="@+id/spin_itemCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/round"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/round"
-                    android:textSize="@dimen/_10sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/_20sdp"
-                android:paddingTop="@dimen/_15sdp"
-                android:paddingRight="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_15sdp">
-
-                <TextView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Price"
-                    android:textColor="@color/gray_light"
-                    android:textSize="@dimen/_10sdp" />
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_15sdp">
 
-                <EditText
-                    android:id="@+id/edit_itemPrice"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Type"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <Spinner
+                        android:id="@+id/spin_itemType"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/round"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/round"
-                    android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:textSize="@dimen/_15sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/_20sdp"
-                android:paddingTop="@dimen/_15sdp"
-                android:paddingRight="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_15sdp">
-
-                <TextView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Stock"
-                    android:textColor="@color/gray_light"
-                    android:textSize="@dimen/_10sdp" />
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_15sdp">
 
-                <EditText
-                    android:id="@+id/edit_stock"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edit_itemPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/round"
-                    android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:textSize="@dimen/_15sdp" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_15sdp">
 
-            <Button
-                android:id="@+id/btn_createItem"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginRight="@dimen/_15sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
-                android:background="@drawable/btn_round"
-                android:text="Create Item"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp">
-            </Button>
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stock"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edit_stock"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_createItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@drawable/btn_round"
+                    android:text="Create Item"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15ssp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
 </LinearLayout>
