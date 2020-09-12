@@ -42,8 +42,8 @@ public class EditUserDetailsActivity extends BaseActivity {
             strPassword = preference.getStringFromPreference(Preference.PASSWORD, "");
             etPassword.setText(strPassword);
         }
-        if (preference.getIntFromPreference(Preference.MOBILE_NO, 0) != 0) {
-            strMobileNo = "" + preference.getIntFromPreference(Preference.MOBILE_NO, 0);
+        if (!preference.getStringFromPreference(Preference.MOBILE_NO, "").equalsIgnoreCase("")) {
+            strMobileNo = preference.getStringFromPreference(Preference.MOBILE_NO, "");
             etMobileNo.setText(strMobileNo);
         }
         if (!preference.getStringFromPreference(Preference.EMAIL, "").equalsIgnoreCase("")) {
@@ -121,7 +121,7 @@ public class EditUserDetailsActivity extends BaseActivity {
 
     private String generateJsonToString() {
         String jsonString = "{" +
-                "\"UP_ID\": "+Long.parseLong(preference.getStringFromPreference(Preference.ID, ""))+", " +
+                "\"UP_ID\": " + Integer.parseInt(preference.getStringFromPreference(Preference.ID, "")) + ", " +
                 "\"UP_Name\": \"" + etName.getText().toString() + "\", " +
                 "\"UP_User_Type\": \"" + preference.getStringFromPreference(Preference.TYPE, "") + "\", " +
                 "\"UP_Email\": \"" + etEmail.getText().toString() + "\"," +

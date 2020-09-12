@@ -240,7 +240,7 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemSel
                     preference.saveStringInPreference(Preference.PASSWORD, userDo.UP_Password);
                     preference.saveStringInPreference(Preference.EMAIL, userDo.UP_Email);
                     preference.saveStringInPreference(Preference.TYPE, userDo.UP_User_Type);
-                    preference.saveIntInPreference(Preference.MOBILE_NO, userDo.UP_Mobile_No);
+                    preference.saveStringInPreference(Preference.MOBILE_NO, ""+userDo.UP_Mobile_No);
                     preference.commitPreference();
 
 
