@@ -7,8 +7,9 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_height="0dp"
+
+        android:layout_weight="0.3"
         android:gravity="center"
         android:text="Buy Sell"
         android:textColor="@color/white"
@@ -18,7 +19,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_50sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         android:orientation="horizontal">
 
@@ -44,19 +44,18 @@
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold" />
     </LinearLayout>
-    <!--    <ScrollView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_weight="1"-->
-    <!--        android:fadingEdge="none"-->
-    <!--        android:scrollbars="none" >-->
     <LinearLayout
         android:id="@+id/lllogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        android:layout_weight="0.7"
         android:visibility="visible">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -181,14 +180,16 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/llsignup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        android:layout_weight="0.7"
         android:visibility="gone">
 
         <ScrollView

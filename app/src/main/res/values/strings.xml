@@ -3,8 +3,8 @@
 
     <string name="warning">Warning !</string>
     <string name="enter_password">Please enter password.</string>
-    <string name="enter_username_password">Please enter username and password.</string>
-    <string name="enter_username">Please enter username.</string>
+    <string name="enter_username_password">Please enter userid and password.</string>
+    <string name="enter_username">Please enter userId.</string>
     <string name="Cancel">cancel</string>
     <string name="OK">OK</string>
 

@@ -36,11 +36,9 @@
                         android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp"
                         android:id="@+id/imgEditUserDetails"
+                        android:visibility="gone"
                         android:src="@drawable/edit_icon" />
                 </LinearLayout>
-
-
-
             </RelativeLayout>
 
             <LinearLayout
@@ -93,7 +91,8 @@
                         android:layout_weight="1"
                         android:text="@string/supp_item"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/txtsupp_item"
@@ -102,7 +101,8 @@
                         android:layout_weight="1"
                         android:text="40"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -119,7 +119,8 @@
                         android:layout_weight="1"
                         android:text="@string/pending_del"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/txtPending_delivery"
@@ -128,7 +129,8 @@
                         android:layout_weight="1"
                         android:text="15"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -145,7 +147,8 @@
                         android:layout_weight="1"
                         android:text="@string/pending_rec"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/txtPending_receiver"
@@ -154,7 +157,8 @@
                         android:layout_weight="1"
                         android:text="40"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -171,7 +175,8 @@
                         android:layout_weight="1"
                         android:text="@string/pending_order"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/txtPending_oder"
@@ -180,7 +185,8 @@
                         android:layout_weight="1"
                         android:text="40"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -197,7 +203,8 @@
                         android:layout_weight="1"
                         android:text="@string/pending_pay"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/txtPending_pay"
@@ -206,7 +213,8 @@
                         android:layout_weight="1"
                         android:text="30"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -223,7 +231,8 @@
                         android:layout_weight="1"
                         android:text="@string/cart"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/txtcart"
@@ -232,7 +241,8 @@
                         android:layout_weight="1"
                         android:text=""
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"></TextView>
+                        android:textSize="@dimen/_10sdp">
+                    </TextView>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

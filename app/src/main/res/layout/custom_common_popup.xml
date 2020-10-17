@@ -1,98 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical" >
+android:layout_width="fill_parent"
+android:layout_height="match_parent"
+android:gravity="center"
+android:orientation="vertical">
 
-    <LinearLayout
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/bgmain"
+    android:orientation="vertical"
+    android:padding="@dimen/_30sdp">
+
+    <TextView
+        android:id="@+id/tvTitlePopup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_30sdp"
+        android:layout_marginBottom="10dp"
+        android:drawableLeft="@drawable/warning"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="Warning!"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
         android:layout_gravity="center"
-        android:padding="@dimen/_30sdp"
-        android:background="@drawable/bgmain"
-        android:orientation="vertical" >
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_12sdp"
+        android:background="@drawable/divideline1" />
 
-        <TextView
-            android:id="@+id/tvTitlePopup"
+    <TextView
+        android:id="@+id/tvMessagePopup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Do you want to check out?"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/gray_light"
+        android:textSize="@dimen/_21ssp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center|bottom">
+
+        <Button
+            android:id="@+id/btnYesPopup"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableLeft="@drawable/warning"
-            android:text="Warning!"
-            android:gravity="center"
-            android:textColor="@color/gray_dark"
-            android:textSize="@dimen/_15ssp"
-            android:textStyle="bold"
-            android:drawablePadding="5dp" />
+            android:layout_height="@dimen/_35sdp"
+            android:background="@color/app_color"
+            android:text="@string/OK"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold" />
 
-        <View
+        <Button
+            android:id="@+id/btnNoPopup"
             android:layout_width="wrap_content"
-            android:layout_height="2dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/_12sdp"
-            android:layout_marginRight="@dimen/_12sdp"
-            android:background="@drawable/divideline1" />
-
-        <TextView
-            android:id="@+id/tvMessagePopup"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="Do you want to check out?"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_15ssp" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/gray_light"
-            android:textSize="@dimen/_21ssp"
-            android:visibility="gone" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:gravity="center|bottom" >
-
-            <Button
-                android:id="@+id/btnYesPopup"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_35sdp"
-                android:background="@color/app_color"
-                android:text="@string/OK"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_13ssp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btnNoPopup"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:background="@color/gray_dark"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_13ssp"
-                android:text="@string/Cancel"
-                android:textStyle="bold" />
-        </LinearLayout>
+            android:background="@color/gray_dark"
+            android:text="@string/Cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold" />
     </LinearLayout>
+</LinearLayout>
 
 </LinearLayout>

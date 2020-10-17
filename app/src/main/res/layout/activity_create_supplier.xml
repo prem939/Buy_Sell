@@ -28,7 +28,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.2"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -76,7 +76,7 @@
                             android:textSize="@dimen/_10sdp" />
 
                         <EditText
-                            android:id="@+id/edit_supplier_name"
+                            android:id="@+id/edtSupplierName"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:layout_gravity="center"
@@ -101,7 +101,7 @@
                             android:textSize="@dimen/_10sdp" />
 
                         <EditText
-                            android:id="@+id/edit_template"
+                            android:id="@+id/edtTemplate"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:layout_gravity="center"
@@ -110,6 +110,79 @@
                             android:paddingLeft="@dimen/_5sdp"
                             android:text="Own Template/Pre Define"
                             android:textSize="@dimen/_15sdp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Delivery Charges :"
+                            android:textColor="@color/gray_dark"
+                            android:textSize="@dimen/_10ssp">
+                        </TextView>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_5sdp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Min"
+                                    android:textColor="@color/gray_dark"
+                                    android:textSize="@dimen/_10sdp" />
+
+                                <EditText
+                                    android:id="@+id/edtMin"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_35sdp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/round"
+                                    android:imeOptions="actionNext"
+                                    android:inputType = "number"
+                                    android:paddingLeft="@dimen/_5sdp"
+                                    android:textSize="@dimen/_15sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_5sdp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Max"
+                                    android:textColor="@color/gray_dark"
+                                    android:textSize="@dimen/_10sdp" />
+
+                                <EditText
+                                    android:id="@+id/edtMax"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_35sdp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/round"
+                                    android:imeOptions="actionNext"
+                                    android:paddingLeft="@dimen/_5sdp"
+                                    android:inputType = "number"
+                                    android:textSize="@dimen/_15sdp" />
+                            </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -127,7 +200,7 @@
                             android:textSize="@dimen/_10sdp" />
 
                         <EditText
-                            android:id="@+id/edit_pan_aadher_no"
+                            android:id="@+id/edtPin_AadharNo"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:layout_gravity="center"
@@ -147,12 +220,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Address"
+                            android:text="Register Address"
                             android:textColor="@color/gray_dark"
                             android:textSize="@dimen/_10sdp" />
 
                         <EditText
-                            android:id="@+id/edit_address"
+                            android:id="@+id/edtRegisterAddress"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:layout_gravity="center"
@@ -161,7 +234,30 @@
                             android:paddingLeft="@dimen/_5sdp"
                             android:textSize="@dimen/_15sdp" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dispatch Address"
+                            android:textColor="@color/gray_dark"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <EditText
+                            android:id="@+id/edtDispatchAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:textSize="@dimen/_15sdp" />
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -183,7 +279,7 @@
                                 android:textSize="@dimen/_10sdp" />
 
                             <EditText
-                                android:id="@+id/edit_city"
+                                android:id="@+id/edtCity"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_35sdp"
                                 android:layout_gravity="center"
@@ -210,17 +306,41 @@
                                 android:textSize="@dimen/_10sdp" />
 
                             <EditText
-                                android:id="@+id/edit_zip_code"
+                                android:id="@+id/edtZipCode"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_35sdp"
                                 android:layout_gravity="center"
                                 android:background="@drawable/round"
                                 android:imeOptions="actionNext"
                                 android:paddingLeft="@dimen/_5sdp"
+                                android:inputType = "number"
                                 android:textSize="@dimen/_15sdp" />
                         </LinearLayout>
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="State"
+                            android:textColor="@color/gray_dark"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <EditText
+                            android:id="@+id/edtState"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:textSize="@dimen/_15sdp" />
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -236,7 +356,7 @@
                             android:textSize="@dimen/_10sdp" />
 
                         <Spinner
-                            android:id="@+id/spin_country"
+                            android:id="@+id/spinCountry"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:layout_gravity="center"
@@ -245,18 +365,69 @@
                             android:paddingLeft="@dimen/_5sdp"
                             android:textSize="@dimen/_15sdp" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GST No"
+                            android:textColor="@color/gray_dark"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <EditText
+                            android:id="@+id/edtGstNo"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round"
+                            android:imeOptions="actionNext"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:textSize="@dimen/_15sdp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile No"
+                            android:textColor="@color/gray_dark"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <EditText
+                            android:id="@+id/edtMobileNo"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+                            android:maxLength="10"
+                            android:background="@drawable/round"
+                            android:imeOptions="actionNext"
+                            android:inputType = "number"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:textSize="@dimen/_15sdp" />
+                    </LinearLayout>
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_30sdp"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/_5sdp"
                         android:background="@drawable/btn_round"
                         android:paddingLeft="@dimen/_5sdp"
                         android:paddingRight="@dimen/_5sdp"
                         android:text="Create Supplier"
+                        android:layout_marginBottom="@dimen/_55sdp"
+                        android:id="@+id/btnCreateSupplier"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_15ssp"></Button>
+                        android:textSize="@dimen/_15ssp">
+                    </Button>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
