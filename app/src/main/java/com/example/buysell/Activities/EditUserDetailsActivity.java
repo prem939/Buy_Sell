@@ -1,6 +1,7 @@
 package com.example.buysell.Activities;
 
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.buysell.ApiServices;
+import com.example.buysell.Do.UserDo;
 import com.example.buysell.R;
 import com.example.buysell.common.Preference;
 
@@ -25,7 +27,7 @@ public class EditUserDetailsActivity extends BaseActivity {
     private CShowProgress cShowProgress;
     private ImageView imgChangePassword;
     private boolean show = false;
-
+    private UserDo user= null;
     @Override
     public void initialize() {
         llEditUserDetails = (LinearLayout) inflater.inflate(R.layout.edit_user_details, null);
@@ -33,31 +35,20 @@ public class EditUserDetailsActivity extends BaseActivity {
         txt_head.setText("Edit Profile");
 
         initilization();
-
-        if (!preference.getStringFromPreference(Preference.USERNAME, "").equalsIgnoreCase("")) {
-            strName = preference.getStringFromPreference(Preference.USERNAME, "");
-            etName.setText(strName);
-        }
-        if (!preference.getStringFromPreference(Preference.PASSWORD, "").equalsIgnoreCase("")) {
-            strPassword = preference.getStringFromPreference(Preference.PASSWORD, "");
-            etPassword.setText(strPassword);
-        }
-        if (!preference.getStringFromPreference(Preference.MOBILE_NO, "").equalsIgnoreCase("")) {
-            strMobileNo = preference.getStringFromPreference(Preference.MOBILE_NO, "");
-            etMobileNo.setText(strMobileNo);
-        }
-        if (!preference.getStringFromPreference(Preference.EMAIL, "").equalsIgnoreCase("")) {
-            strEmail = preference.getStringFromPreference(Preference.EMAIL, "");
-            etEmail.setText(strEmail);
-        }
-        if (!preference.getStringFromPreference(Preference.TYPE, "").equalsIgnoreCase("")) {
-            strType = preference.getStringFromPreference(Preference.TYPE, "");
+        Bundle bundle = getIntent().getExtras();
+        if(bundle!=null){
+            user = (UserDo) bundle.get("LoginUserData");
+            etName.setText(user.UP_Name);
+            etPassword.setText(user.UP_Password);
+            etMobileNo.setText(""+user.UP_Mobile_No);
+            etEmail.setText(user.UP_Email);
         }
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (strName.equalsIgnoreCase(etName.getText().toString()) && strEmail.equalsIgnoreCase(etEmail.getText().toString()) && strMobileNo.equalsIgnoreCase(etMobileNo.getText().toString()) && strPassword.equalsIgnoreCase(etPassword.getText().toString())) {
+
+                if (user.UP_Name.equalsIgnoreCase(etName.getText().toString()) && user.UP_Email.equalsIgnoreCase(etEmail.getText().toString()) && etMobileNo.getText().toString().equalsIgnoreCase(""+user.UP_Mobile_No) && user.UP_Password.equalsIgnoreCase(etPassword.getText().toString())) {
                     showCustomDialog(EditUserDetailsActivity.this, getString(R.string.warning), "No Changes are Applied", getString(R.string.OK), "", "");
                 } else {
                     SyncforUpdateUserDetails syncforUpdateUserDetails = new SyncforUpdateUserDetails();

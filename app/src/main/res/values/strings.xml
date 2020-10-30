@@ -9,7 +9,7 @@
     <string name="OK">OK</string>
 
     <!--    homescreenactivity_string-->
-    <string name="supp_acc">Supp w/o Acc</string>
+    <string name="supp_prod">Supp w/o Prod</string>
     <string name="supp_item">Supp w/o Acc</string>
     <string name="pending_order">Pending Order</string>
     <string name="cart">Cart</string>
@@ -41,4 +41,10 @@
     <string name="cr_upd_bill">Create/Update \nBill to</string>
 
     <string name="do_you_want_to_logout">Are you sure you want to logout?</string>
+
+    <string name="open_pos">Open Pos</string>
+    <string name="to_receive">To Receive</string>
+    <string name="to_pay">To Pay</string>
+    <string name="open_sos">Open So s</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
 </resources>

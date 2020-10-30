@@ -75,10 +75,15 @@
                 android:layout_weight="1"
                 android:gravity="center">
 
-                <ImageView
+                <TextView
                     android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_15sdp"
-                    android:src="@drawable/plus"></ImageView>
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/dark">
+                </TextView>
             </LinearLayout>
 
             <LinearLayout
@@ -91,9 +96,10 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/round"
                     android:gravity="center"
-                    android:text="6"
+                    android:text=" 6 "
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_15sdp"></TextView>
+                    android:textSize="@dimen/_15sdp">
+                </TextView>
             </LinearLayout>
 
             <LinearLayout
@@ -103,10 +109,15 @@
                 android:layout_weight="1"
                 android:gravity="center">
 
-                <ImageView
+                <TextView
                     android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_15sdp"
-                    android:src="@drawable/minous"></ImageView>
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/dark">
+                </TextView>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

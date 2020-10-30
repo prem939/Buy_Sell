@@ -17,26 +17,25 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 public class ApiServices {
-    public static String getDataForSingleUser(String Userid, String userPassword) {
+    public static String getDataForSingleUser(String Userid) {
         BufferedReader reader = null;
+        String response = "";
         try {
-            URL getUrl = new URL(ServiceURLs.ALL_USERS + "/?id=" + Userid);
-            HttpURLConnection connection = (HttpURLConnection) getUrl.openConnection();
-            connection.setRequestMethod("GET");
-            connection.addRequestProperty("Authorization", EncodeToBytes(Userid, userPassword));
+            URL getUrl = new URL(ServiceURLs.GET_USER_PROFILE + Userid);
+            HttpURLConnection urlConnection = (HttpURLConnection) getUrl.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.addRequestProperty("Accept", "application/json");
 
-            StringBuilder sb = new StringBuilder();
-            reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
             String line;
             while ((line = reader.readLine()) != null) {
-                sb.append(line);
-                sb.append("\n");
+                response += line;
             }
 
-            return sb.toString();
 
         } catch (Exception e) {
             e.printStackTrace();
+            response = e.getMessage();
             return null;
         } finally {
             if (null != reader) {
@@ -47,6 +46,7 @@ public class ApiServices {
                 }
             }
         }
+        return response;
     }
 
     public static String EncodeToBytes(String userName, String password) {
@@ -118,6 +118,7 @@ public class ApiServices {
         String response = "";
         BufferedWriter writer = null;
         int responseCode = 0;
+        BufferedReader reader=null;
         try {
             URL postUrl = new URL(ServiceURLs.LOGIN);
             HttpURLConnection urlConnection = (HttpURLConnection) postUrl.openConnection();
@@ -135,14 +136,22 @@ public class ApiServices {
             urlConnection.getInputStream();
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 String line;
-                BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                while ((line = br.readLine()) != null) {
+                reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                while ((line = reader.readLine()) != null) {
                     response += line;
                 }
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             response = e.getMessage();
+        } finally {
+            if (null != reader) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return response;
     }
@@ -152,6 +161,7 @@ public class ApiServices {
         String response = "";
         BufferedWriter writer = null;
         int responseCode = 0;
+        BufferedReader reader=null;
         try {
             URL postUrl = new URL(Url);
             HttpURLConnection urlConnection = (HttpURLConnection) postUrl.openConnection();
@@ -176,12 +186,14 @@ public class ApiServices {
                 response = AppConstants.BAD_REQEUST;
             }else if (responseCode == HttpURLConnection.HTTP_SERVER_ERROR){
                 response = AppConstants.INTERNAL_ERROR;
+            } else if (responseCode == AppConstants.UserId_not_found){
+                response = AppConstants.USERID_NOT_FOUND;
             }
             urlConnection.getInputStream();
             if (responseCode == HttpURLConnection.HTTP_CREATED) {
                 String line;
-                BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                while ((line = br.readLine()) != null) {
+                reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                while ((line = reader.readLine()) != null) {
                     response += line;
                 }
             }
@@ -189,6 +201,88 @@ public class ApiServices {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             response = e.getMessage();
+        }finally {
+            if (null != reader) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return response;
+    }
+    public static String deleteItem(String url) {
+        OutputStream out = null;
+        String response = "";
+        BufferedWriter writer = null;
+        int responseCode = 0;
+        BufferedReader reader=null;
+        try {
+            URL postUrl = new URL(url);
+            HttpURLConnection urlConnection = (HttpURLConnection) postUrl.openConnection();
+            urlConnection.setRequestMethod("DELETE");
+            urlConnection.addRequestProperty("Accept", "application/json");
+            responseCode = urlConnection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_INTERNAL_ERROR) {
+                response = AppConstants.INTERNAL_ERROR;
+            }
+            urlConnection.getInputStream();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                String line;
+                reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                while ((line = reader.readLine()) != null) {
+                    response += line;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            response = e.getMessage();
+        } finally {
+            if (null != reader) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return response;
+    }
+
+    public static String UpdateItemUsingToken(String url,String jsonString,String token) {
+        OutputStream out = null;
+        String response = "";
+        BufferedWriter writer = null;
+        int responseCode = 0;
+        BufferedReader reader=null;
+        try {
+            URL postUrl = new URL(url);
+            HttpURLConnection urlConnection = (HttpURLConnection) postUrl.openConnection();
+            urlConnection.setRequestMethod("PUT");
+            urlConnection.addRequestProperty("Content-Type", "application/json");
+            urlConnection.setRequestProperty("Authorization", "Bearer " + token);
+            urlConnection.setDoOutput(true);
+            urlConnection.getOutputStream().write(jsonString.getBytes("UTF-8"));
+            responseCode = urlConnection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_INTERNAL_ERROR) {
+                response = AppConstants.INTERNAL_ERROR;
+            }
+            urlConnection.getInputStream();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                response = "Updated";
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            response = e.getMessage();
+        } finally {
+            if (null != reader) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return response;
     }

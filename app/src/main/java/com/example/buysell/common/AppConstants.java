@@ -9,14 +9,19 @@ import java.util.ArrayList;
 
 public class AppConstants {
     public static Typeface Roboto_Condensed_Bold, Roboto_Condensed;
+
     public static String CUSTOMERLIST = "CUSTOMERLIST";
     public static String SUPPLLIERLIST = "SUPPLLIERLIST";
     public static String CART = "CART";
     public static String FAVOLIST = "FAVOLIST";
     public static String SUPPLIERPAGE = "SUPPLIERPAGE";
     public static String SELLPAGE = "SELLPAGE";
+    public static String FOREDITSUPPLIERITEM = "Update supplier item";
+    public static String FORCREATESUPPLIERITEM = "Create supplier item";
+
     public static String DOME_USERID = "1234567890";
     public static String DOME_PASSWORD = "testpwdsup";
+
     public static String INVALID_USERID_PASS = "Invalid_UserIdPassword";
     public static String VALID_USERID_PASS = "Valid_UserIdPassword";
     public static String INTERNAL_ERROR = "Internal Server error";
@@ -32,10 +37,12 @@ public class AppConstants {
     public static String PAN_NO_ALREADY_EXISTS = "PAN No Already Exists";
     public static String GST_NO_ALREADY_EXISTS = "Gst no already exists";
     public static String BAD_REQEUST = "Bad request";
+    public static String USERID_NOT_FOUND = "UserId not found";
     public static int Supplier_Name_Already_Exists = 221;
     public static int PAN_No_Already_Exists = 222;
     public static int GST_No_Already_Exists = 223;
     public static int Mobile_No_Already_Exists_Supplier = 224;
+    public static int UserId_not_found = 404;
 
 
     public static ArrayList<DashbordDo> admin_menu() {
@@ -62,7 +69,7 @@ public class AppConstants {
 
     /*********************************************Pre Sales Customer Menu Options********************************************/
     public static String menu[] = {"Products", "Supplier List", "Create site", "Search Prod/Supp", "Sell Page", "Log Out"};
-    public static String admin_menu[] = {"Cr/Upd Supplier", "Cr/Upd Supplier Item", "Cr/Upd Products", "Create Promo", "Cr/Upd Sites", "Add Supplier", "Log Out"};
+    public static String admin_menu[] = {"Cr/Upd Supplier", "Cr/Upd Supplier Item", "Cr/Upd Products", "Create Promo", "Cr/Upd Sites", "Supplier items", "Log Out"};
     public static String customer_menu[] = {"Cr/Upd Supplier", "Add Supplier", "Log Out"};
     public static int menu_icons[] = {R.mipmap.files, R.mipmap.ordre_list, R.mipmap.files, R.mipmap.ordre_list, R.mipmap.files, R.mipmap.ordre_list, R.mipmap.logout};
     public static String Admin_BuyerCheckeInDownOption[] = {"Supp list", "fav item list", "PO"};

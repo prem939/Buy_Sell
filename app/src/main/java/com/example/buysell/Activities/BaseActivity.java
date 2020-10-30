@@ -37,7 +37,7 @@ import java.util.List;
 
 public abstract class BaseActivity extends FragmentActivity {
     public LayoutInflater inflater;
-    public LinearLayout llBody, llheader, llheader2,llSearchBar;
+    public LinearLayout llBody, llheader, llheader2, llSearchBar;
     public Button btnMenu, btn_search;
     public FrameLayout flMenu;
     public DrawerLayout drawerLayout;
@@ -45,7 +45,7 @@ public abstract class BaseActivity extends FragmentActivity {
     public ListView lvDashBoard;
     public Preference preference;
     public CustomDialog customDialog;
-    public TextView txt_head;
+    public TextView txt_head,txt_add;
     public ImageView img_cart, img_Menu, img_back;
     public EditText edtSearch_bar;
     private String UserType = "Admin";
@@ -149,6 +149,7 @@ public abstract class BaseActivity extends FragmentActivity {
         btn_search = findViewById(R.id.btn_search);
         edtSearch_bar = findViewById(R.id.edtSearch_bar);
         llSearchBar = findViewById(R.id.llSearchBar);
+        txt_add = findViewById(R.id.txt_add);
     }
 
     public abstract void initialize();
@@ -246,40 +247,11 @@ public abstract class BaseActivity extends FragmentActivity {
         moveToNextActivityForCheckInAdmin(strOptionSelected);
     }
 
-    //    private void moveToNextActivityForCheckInAdmin(String strOptionSelected) {
-//        closeDrawer();
-//        if (strOptionSelected.equalsIgnoreCase((menu[0]))) {
-//            Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
-//            startActivity(intent);
-//        }
-////        else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
-////            Intent intent = new Intent(BaseActivity.this, HomeScreenActivity.class);
-////            startActivity(intent);
-////        }
-//        else if (strOptionSelected.equalsIgnoreCase((menu[1]))) {
-//            Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
-//            intent.putExtra("from", AppConstants.SUPPLIERPAGE);
-//            startActivity(intent);
-//        } else if (strOptionSelected.equalsIgnoreCase((menu[2]))) {
-//            Intent intent = new Intent(BaseActivity.this, CreateSite.class);
-//            startActivity(intent);
-//        } else if (strOptionSelected.equalsIgnoreCase((menu[3]))) {
-//            Intent intent = new Intent(BaseActivity.this, SearchSupplierProduct.class);
-//            startActivity(intent);
-//        } else if (strOptionSelected.equalsIgnoreCase((menu[4]))) {
-//            Intent intent = new Intent(BaseActivity.this, SupplierPageActivity.class);
-//            intent.putExtra("from", AppConstants.SELLPAGE);
-//            startActivity(intent);
-//        } else if (strOptionSelected.equalsIgnoreCase((menu[5]))) {
-//            showCustomDialog(this, getString(R.string.warning), getResources().getString(R.string.do_you_want_to_logout), getString(R.string.OK), getString(R.string.Cancel), "logout");
-//
-//        }
-//
-//    }
     private void moveToNextActivityForCheckInAdmin(String strOptionSelected) {
         closeDrawer();
         if (strOptionSelected.equalsIgnoreCase("Cr/Upd Supplier")) {
             Intent intent = new Intent(BaseActivity.this, CreateSupplierActivity.class);
+            intent.putExtra("from", "Create Supplier");
             startActivity(intent);
         } else if (strOptionSelected.equalsIgnoreCase("Cr/Upd Products")) {
             Intent intent = new Intent(BaseActivity.this, CreateItemActivity.class);
@@ -289,13 +261,15 @@ public abstract class BaseActivity extends FragmentActivity {
             startActivity(intent);
         } else if (strOptionSelected.equalsIgnoreCase("Cr/Upd Sites")) {
             Toast.makeText(getApplicationContext(), "Not yet Implimented", Toast.LENGTH_SHORT).show();
-        } else if (strOptionSelected.equalsIgnoreCase("Add Supplier")) {
-            Toast.makeText(getApplicationContext(), "Not yet Implimented", Toast.LENGTH_SHORT).show();
+        } else if (strOptionSelected.equalsIgnoreCase("Supplier items")) {
+            Intent intent = new Intent(BaseActivity.this, SupplierItemListActivity.class);
+            startActivity(intent);
         } else if (strOptionSelected.equalsIgnoreCase("Log Out")) {
             showCustomDialog(this, getString(R.string.warning), getResources().getString(R.string.do_you_want_to_logout), getString(R.string.OK), getString(R.string.Cancel), "logout");
 
-        }else if (strOptionSelected.equalsIgnoreCase("Cr/Upd Supplier Item")) {
+        } else if (strOptionSelected.equalsIgnoreCase("Cr/Upd Supplier Item")) {
             Intent intent = new Intent(BaseActivity.this, CreateSupplierItemMaster.class);
+            intent.putExtra("from",AppConstants.FORCREATESUPPLIERITEM);
             startActivity(intent);
         }
 
@@ -364,11 +338,8 @@ public abstract class BaseActivity extends FragmentActivity {
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
-                    if (from.equalsIgnoreCase("UpdateUserData")) {
-                        img_back.performClick();
-                    }
-                    if (from.equalsIgnoreCase("Supplier Created")) {
-                        img_back.performClick();
+                    if (from.equalsIgnoreCase("finish")) {
+                        finish();
                     }
                 }
             });

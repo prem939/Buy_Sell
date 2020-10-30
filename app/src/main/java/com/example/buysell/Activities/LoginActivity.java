@@ -3,8 +3,10 @@ package com.example.buysell.Activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -20,10 +22,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.buysell.ApiServices;
+import com.example.buysell.Do.UserDo;
 import com.example.buysell.R;
 import com.example.buysell.common.AppConstants;
 import com.example.buysell.common.Preference;
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonSyntaxException;
+
+import java.util.Collections;
 
 
 public class LoginActivity extends BaseActivity implements AdapterView.OnItemSelectedListener {
@@ -34,7 +41,7 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemSel
     private String strUserId = "", strPassword = "", strFname = "", strLname = "", strEmail = "", strPhoneNumber = "", strPasswd = "", strType = "", strId = "";
     LinearLayout llLogin, llSignUp;
     private Spinner spinUserType;
-    private String UserType[] = {"--select--", "Admin", "Sales Person", "Supplier", "Customer"}, StringJson = "", API_LOGIN = "", emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+",stringToken="",strResponce="";
+    private String UserType[] = {"Admin", "Supplier", "Customer"}, StringJson = "", API_LOGIN = "", emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+",stringToken="",strResponce="";
     private ArrayAdapter<String> userTypeAdapter;
     ApiServices apiServices = new ApiServices();
     private CShowProgress cShowProgress;
@@ -88,10 +95,17 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemSel
                 } else {
                     strType = spinUserType.getSelectedItem().toString();
                 }
-
-                if (strLname.equalsIgnoreCase("") || strFname.equalsIgnoreCase("") || strType.equalsIgnoreCase("--select--") || strEmail.equalsIgnoreCase("") || strPhoneNumber.equalsIgnoreCase("") || strPasswd.equalsIgnoreCase("") || strPhoneNumber.length() < 10) {
-                    showCustomDialog(LoginActivity.this, getString(R.string.warning), "Please enter all details fully", getString(R.string.OK), "", "");
-                } else if (!strEmail.trim().matches(emailPattern)) {
+                if(strFname.equalsIgnoreCase("")){
+                    showCustomDialog(LoginActivity.this, getString(R.string.warning), "First name need not be empty.", getString(R.string.OK), "", "");
+                }else if(strLname.equalsIgnoreCase("")){
+                    showCustomDialog(LoginActivity.this, getString(R.string.warning), "Last name need not be empty.", getString(R.string.OK), "", "");
+                }else if(strPhoneNumber.equalsIgnoreCase("")){
+                    showCustomDialog(LoginActivity.this, getString(R.string.warning), "Phone no need not be empty.", getString(R.string.OK), "", "");
+                }else if(strPasswd.equalsIgnoreCase("")){
+                    showCustomDialog(LoginActivity.this, getString(R.string.warning), "Enter the password", getString(R.string.OK), "", "");
+                }else if(strPhoneNumber.length() < 10){
+                    showCustomDialog(LoginActivity.this, getString(R.string.warning), "Enter valid phone number", getString(R.string.OK), "", "");
+                } else if (!strEmail.equalsIgnoreCase("") && !strEmail.trim().matches(emailPattern)) {
                     showCustomDialog(LoginActivity.this, getString(R.string.warning), "Mail address is not a valid one", getString(R.string.OK), "", "");
                 } else if (isNetworkConnectionAvailable(LoginActivity.this)) {
                     syncTaskForCreateAccount syncTaskForCreateAccount = new syncTaskForCreateAccount();
@@ -107,6 +121,7 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemSel
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                clearLoginEditTest();
                 txtSignUp.setTextColor(getResources().getColor(R.color.lite_green));
                 llSignUp.setVisibility(View.GONE);
 
@@ -118,6 +133,7 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemSel
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                clearSignInEdittest();
                 txtlogin.setTextColor(getResources().getColor(R.color.lite_green));
                 llLogin.setVisibility(View.GONE);
 
@@ -224,18 +240,54 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemSel
 
             if(stringToken.equalsIgnoreCase(AppConstants.INTERNAL_ERROR) || stringToken.equalsIgnoreCase(AppConstants.INVALID_USERID_PASS)){
                 showCustomDialog(LoginActivity.this, getString(R.string.warning), "Invalid UserId or Password", getString(R.string.OK), "", "");
-            }else {
+            }else if (isNetworkConnectionAvailable(LoginActivity.this)){
                 preference.saveStringInPreference(AppConstants.LOGIN_TOKE,stringToken.substring(1,stringToken.length()-1));
-                preference.saveStringInPreference(Preference.USERID, strUserId);
-                preference.saveStringInPreference(Preference.USERNAME, strPassword);
                 preference.commitPreference();
-
-                Intent intent = new Intent(LoginActivity.this, HomeScreenActivity_new.class);
-                startActivity(intent);
+                syncTaskForGetUserProfile syncTaskForGetUserProfile = new syncTaskForGetUserProfile();
+                syncTaskForGetUserProfile.execute();
+            }else{
+                showCustomDialog(LoginActivity.this, getString(R.string.warning), "Connect to Internet", getString(R.string.OK), "", "");
             }
         }
     }
+    public class syncTaskForGetUserProfile extends AsyncTask<Void, Void, Void>{
 
+        @Override
+        protected Void doInBackground(Void... voids) {
+            strResponce = apiServices.getDataForSingleUser(strUserId);
+            return null;
+        }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            cShowProgress = CShowProgress.getInstance();
+            cShowProgress.showProgress(LoginActivity.this);
+        }
+        @Override
+        protected void onPostExecute(Void s) {
+            super.onPostExecute(s);
+            cShowProgress.hideProgress();
+            UserDo userDo = null;
+            if (strResponce != null && !strResponce.equalsIgnoreCase("")) {
+                try {
+                    userDo = new Gson().fromJson(strResponce, UserDo.class);
+                } catch (JsonSyntaxException e) {
+                    e.printStackTrace();
+                } catch (JsonParseException e) {
+                    e.printStackTrace();
+                }
+
+                if (userDo != null) {
+                    preference.saveStringInPreference(Preference.USERID,""+userDo.UP_UserID);
+                    preference.commitPreference();
+                    Intent intent = new Intent(LoginActivity.this, HomeScreenActivity_new.class);
+                    intent.putExtra("LoginUserData", userDo);
+                    intent.putExtras(intent);
+                    startActivity(intent);
+                }
+            }
+        }
+    }
     public class syncTaskForCreateAccount extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -255,37 +307,39 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemSel
         protected void onPostExecute(Void s) {
             super.onPostExecute(s);
             cShowProgress.hideProgress();
-            Gson gson = new Gson();
             if(strResponce.equalsIgnoreCase(AppConstants.EMAIL_ALREADY_EXISTS)){
                 showCustomDialog(LoginActivity.this, getString(R.string.warning), "Email already exists", getString(R.string.OK), "", "");
             }else if(strResponce.equalsIgnoreCase(AppConstants.MOBILE_NO_ALREADY_EXISTS)){
                 showCustomDialog(LoginActivity.this, getString(R.string.warning), "Mobile No already exists", getString(R.string.OK), "", "");
             }else  if(strResponce.equalsIgnoreCase(AppConstants.CREATED_SUCCESSFULLY)){
                 txtlogin.performClick();
-                clearTextInEdittest();
-                showCustomDialog(LoginActivity.this, getString(R.string.warning), "Created Successfulyl", getString(R.string.OK), "", "");
+                clearSignInEdittest();
+                showCustomDialog(LoginActivity.this, getString(R.string.warning), "Created Successfully. Yours UserId is : "+strPhoneNumber, getString(R.string.OK), "", "");
             }else {
-                Toast.makeText(getApplicationContext(),strResponce,Toast.LENGTH_SHORT).show();
-//                showCustomDialog(LoginActivity.this, getString(R.string.warning), strResponce, getString(R.string.OK), "", "");
+//                Toast.makeText(getApplicationContext(),strResponce,Toast.LENGTH_SHORT).show();
+                showCustomDialog(LoginActivity.this, getString(R.string.warning), "Something went wrong", getString(R.string.OK), "", "");
             }
         }
     }
 
-    private void clearTextInEdittest() {
+    private void clearSignInEdittest() {
         etFirstName.setText("");
         etLastName.setText("");
         etEmail.setText("");
         etPhone.setText("");
         etPassword.setText("");
     }
-
+    private void clearLoginEditTest(){
+        edit_userId.setText("");
+        edit_password.setText("");
+    }
     private String generateJsonToString() {
         String jsonString = "{" +
                 "\"UP_Name\": \"" + strFname + " " + strLname + "\", " +
                 "\"UP_User_Type\": \"" + strType + "\", " +
                 "\"UP_Email\": \"" + strEmail + "\"," +
-                "\"UP_Mobile_No\": " + Long.parseLong(strPhoneNumber) + "," +
-                "\"UP_UserID\": " + Long.parseLong(strPhoneNumber) + "," +
+                "\"UP_Mobile_No\": " + strPhoneNumber + "," +
+                "\"UP_UserID\": " + strPhoneNumber + "," +
                 "\"UP_Password\": \"" + strPasswd + "\"," +
                 "\"UP_Status\": \"A\"" + "}";
         return jsonString;
