@@ -1,4 +1,4 @@
-package com.example.buysell2;
+package com.example.buysell;
 
 import android.content.Context;
 

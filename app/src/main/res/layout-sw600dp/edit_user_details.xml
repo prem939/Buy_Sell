@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_ground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/round"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:paddingRight="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_15sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/half_black"
+                android:textSize="@dimen/_10sdp" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/round"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_15sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@color/half_black"
+                android:textSize="@dimen/_10sdp" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/round"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_15sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile Numver"
+                android:textColor="@color/half_black"
+                android:textSize="@dimen/_10sdp" />
+
+            <EditText
+                android:id="@+id/etMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/round"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_15sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="@color/half_black"
+                android:textSize="@dimen/_10sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.9"
+                    android:background="@android:color/transparent"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:password="true"
+                    android:textSize="@dimen/_15sdp" />
+
+                <ImageView
+                    android:id="@+id/imgChangePassword"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:src="@drawable/not_see_icon" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/btn_round"
+            android:text="Update"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+</LinearLayout>

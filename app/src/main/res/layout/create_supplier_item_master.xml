@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/back_ground"
+android:orientation="vertical"
+tools:context=".Activities.CreateSupplierActivity">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@drawable/round"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/img_item"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:src="@drawable/no_image" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:background="@drawable/round"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:id="@+id/txt_path"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:text="Uplode item image hear"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <Button
+                        android:id="@+id/btn_uplode"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_12sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_gray"
+                        android:text="uplode File"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Item Name"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edtItemName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UOM"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edtUOM"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edtPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Delivery Charges"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edtDeliveryCharges"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tax Percentage"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edtTaxPercentage"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tax Amount"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edtTaxAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:digits="0123456789"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Category"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:layout_weight=".28"
+                        android:background="@drawable/round"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/spinCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:src="@drawable/drop" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sub Category"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:layout_weight=".28"
+                        android:background="@drawable/round"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/spinSubCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:src="@drawable/drop" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Measure Type"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:layout_weight=".28"
+                        android:background="@drawable/round"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/spinMeasureType"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:src="@drawable/drop" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Qty"
+                        android:textColor="@color/gray_dark"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <EditText
+                        android:id="@+id/edtStock"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/round"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_15sdp" />
+                </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btn_round"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:text="Create Supplier Item"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:id="@+id/btnCreateSupplierItem"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_15ssp">
+                </Button>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_5sdp"
+                    android:background="@color/white"
+                    android:layout_marginBottom="@dimen/_5sdp">
+                </ImageView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+</LinearLayout>
